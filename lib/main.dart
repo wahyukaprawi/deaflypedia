@@ -1,5 +1,4 @@
 import 'package:deaflypedia_app/utils/firebase_options.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +14,7 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
   runApp(
-    DevicePreview(
-      enabled: false,
-      builder: (context) => const MyApp(),
-    ),
+    const MyApp(),
   );
 }
 
