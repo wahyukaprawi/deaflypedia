@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBoRhg2NDmLyzh1u-iN_aL_d-cJPQpsyVg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>198554205229</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.deaflypediaApp</string>
+	<key>PROJECT_ID</key>
+	<string>daeflypedia-app-firebase</string>
+	<key>STORAGE_BUCKET</key>
+	<string>daeflypedia-app-firebase.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:198554205229:ios:b9e5f00948288e0f648ca4</string>
+</dict>
+</plist>
