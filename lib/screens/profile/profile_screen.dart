@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../main.dart';
 
@@ -156,18 +157,20 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
   }
 
   Future<void> logOut(BuildContext context) async {
-  final user = FirebaseAuth.instance.currentUser;
-  if (user != null) {
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(user.uid)
-        .delete();
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .delete();
 
-    await user.delete();
+      await user.delete();
+      await FirebaseAuth.instance.signOut();
+    }
 
-    await FirebaseAuth.instance.signOut();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('home_coach_mark_shown_${user?.uid}');
   }
-}
 
   void _showOverlay() {
     if (!mounted) return;

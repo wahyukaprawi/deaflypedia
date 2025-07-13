@@ -15,6 +15,7 @@ const icCircleCheck = 'assets/icons/ic_circle_check.png';
 const icCircleClose = 'assets/icons/ic_circle_close.png';
 const icCircleLogout = 'assets/icons/ic_circle_logout.png';
 const icCircleExit = 'assets/icons/ic_circle_exit.png';
+const icStatistik = 'assets/icons/ic_statistik.png';
 const icXP = 'assets/icons/ic_xp.png';
 const icStreak = 'assets/icons/ic_streak.png';
 const icIsyarat = 'assets/icons/ic_isyarat.png';

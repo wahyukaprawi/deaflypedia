@@ -6,8 +6,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
 import '../../main.dart';
+import '../../utils/custom_coach_mark.dart';
 import '../leaderboard/leaderboard_screen.dart';
 import '../profile/profile_screen.dart';
 
@@ -20,7 +23,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with RouteAware {
   final GlobalKey<ProfileScreenState> _profileScreenKey = GlobalKey();
+  String get _coachMarkShownKey =>
+      'coach_mark_shown_${FirebaseAuth.instance.currentUser?.uid ?? 'guest'}';
   List<Map<String, dynamic>> categories = [];
+  List<TargetFocus> targets = [];
+  TutorialCoachMark? tutorialCoachMark;
   String? username;
   int? xp;
   int? streak;
@@ -28,17 +35,23 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   bool isLoading = true;
   bool canClaimBonus = true;
   bool isDataReady = false;
+  bool _isOverlayVisible = false;
   int _selectedIndex = 0;
   late PageController _pageController;
   late OverlayEntry _overlayEntry;
-  bool _isOverlayVisible = false;
+  late SharedPreferences _prefs;
+
+  GlobalKey statsKey = GlobalKey();
+  GlobalKey xpKey = GlobalKey();
+  GlobalKey streakKey = GlobalKey();
+  GlobalKey isyaratKey = GlobalKey();
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
     _overlayEntry = _createOverlayEntry();
-    initializeData();
+    _initializeAppData();
   }
 
   @override
@@ -56,6 +69,144 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     _hideOverlay();
     _pageController.dispose();
     super.dispose();
+  }
+
+  Future<void> _initializeAppData() async {
+    _prefs = await SharedPreferences.getInstance();
+    await initializeData();
+
+    if (mounted) {
+      setState(() {
+        isDataReady = true;
+      });
+      _checkAndShowCoachMark();
+    }
+  }
+
+  Future<void> _checkAndShowCoachMark() async {
+    final hasShownCoachMark = _prefs.getBool(_coachMarkShownKey) ?? false;
+
+    if (!hasShownCoachMark && mounted) {
+      await Future.delayed(const Duration(seconds: 3));
+
+      if (mounted && statsKey.currentContext != null) {
+        await _prefs.setBool(_coachMarkShownKey, true);
+        _showTutorialCoachMark();
+      }
+    }
+  }
+
+  void _showTutorialCoachMark() {
+    _initTarget();
+    tutorialCoachMark = TutorialCoachMark(
+      targets: targets,
+      paddingFocus: 0,
+      pulseAnimationDuration: const Duration(milliseconds: 600),
+      hideSkip: true,
+    )..show(context: context);
+  }
+
+  void _initTarget() {
+    targets.add(
+      TargetFocus(
+        identify: "stats-key",
+        keyTarget: statsKey,
+        shape: ShapeLightFocus.RRect,
+        radius: 7,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return CustomCoachMark(
+                title: 'Statistik Pengguna',
+                desc:
+                    'Di sini kamu bisa melihat seberapa jauh kamu sudah belajar. Ada XP, Streak, dan jumlah Isyarat yang sudah kamu pelajari. Semangat terus ya!',
+                icImage: const AssetImage(icStatistik),
+                skip: 'Lewati',
+                next: 'Lanjut',
+                onSkip: () => controller.skip(),
+                onNext: () => controller.next(),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+    targets.add(
+      TargetFocus(
+        identify: "xp-key",
+        keyTarget: xpKey,
+        shape: ShapeLightFocus.RRect,
+        radius: 7,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return CustomCoachMark(
+                title: 'XP',
+                desc:
+                    'XP adalah poin yang kamu dapatkan setiap kali belajar atau menyelesaikan latihan. Makin banyak belajar, makin banyak XP!',
+                icImage: const AssetImage(icXP),
+                skip: 'Lewati',
+                next: 'Lanjut',
+                onSkip: () => controller.skip(),
+                onNext: () => controller.next(),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+    targets.add(
+      TargetFocus(
+        identify: "streak-key",
+        keyTarget: streakKey,
+        shape: ShapeLightFocus.RRect,
+        radius: 7,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return CustomCoachMark(
+                title: 'Streak',
+                desc:
+                    'Streak adalah jumlah hari kamu belajar tanpa berhenti. Belajar setiap hari akan membuat streak-mu bertambah.',
+                icImage: const AssetImage(icStreak),
+                skip: 'Lewati',
+                next: 'Lanjut',
+                onSkip: () => controller.skip(),
+                onNext: () => controller.next(),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+    targets.add(
+      TargetFocus(
+        identify: "isyarat-key",
+        keyTarget: isyaratKey,
+        shape: ShapeLightFocus.RRect,
+        radius: 7,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return CustomCoachMark(
+                title: 'Isyarat',
+                desc:
+                    'Ini adalah jumlah isyarat atau kata yang sudah kamu pelajari. Yuk, tambah terus supaya kamu makin hebat!',
+                icImage: const AssetImage(icIsyarat),
+                skip: 'Lewati',
+                next: 'Selesai',
+                onSkip: () => controller.skip(),
+                onNext: () => controller.next(),
+              );
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> initializeData() async {
@@ -337,6 +488,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     ),
                     const SizedBox(height: 15),
                     Container(
+                      key: statsKey,
                       width: double.infinity,
                       height: 113,
                       decoration: BoxDecoration(
@@ -359,6 +511,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                         children: [
                           Expanded(
                             child: Column(
+                              key: xpKey,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Image(
@@ -395,6 +548,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                           ),
                           Expanded(
                             child: Column(
+                              key: streakKey,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Image(
@@ -431,6 +585,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                           ),
                           Expanded(
                             child: Column(
+                              key: isyaratKey,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Image(
@@ -469,7 +624,6 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                       ),
                     ),
                     const SizedBox(height: 15),
-                    // Container Bonus Harian
                     Container(
                       width: double.infinity,
                       height: 73,

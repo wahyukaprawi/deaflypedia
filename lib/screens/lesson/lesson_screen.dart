@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:async';
+
 import 'package:deaflypedia_app/screens/lesson/dialog_exit_lesson.dart';
 import 'package:deaflypedia_app/screens/lesson/lesson_result_screen.dart';
 import 'package:deaflypedia_app/utils/assert_image.dart';
@@ -35,7 +37,8 @@ class LessonScreen extends StatefulWidget {
   State<LessonScreen> createState() => _LessonScreenState();
 }
 
-class _LessonScreenState extends State<LessonScreen> {
+class _LessonScreenState extends State<LessonScreen>
+    with SingleTickerProviderStateMixin {
   List<Map<String, dynamic>> contentItems = [];
   Map<int, int> userMatches = {};
   Map<int, int> autoMatches = {};
@@ -43,6 +46,7 @@ class _LessonScreenState extends State<LessonScreen> {
   int xp = 0;
   int isyarat = 0;
   int currentContentIndex = 0;
+  int timeLeft = 30;
   bool isLoading = true;
   bool hasAnswered = false;
   bool isAnswerCorrect = false;
@@ -51,8 +55,11 @@ class _LessonScreenState extends State<LessonScreen> {
   int? selectedBottomIndex;
   String? selectedBlankAnswer;
   String? errorMessage;
+  Timer? timer;
   late final TextEditingController _answerController;
   late FocusNode _focusNode;
+  late AnimationController _animationControler;
+  late Animation<double> _animation;
 
   @override
   void initState() {
@@ -67,6 +74,13 @@ class _LessonScreenState extends State<LessonScreen> {
     _answerController = TextEditingController();
     _focusNode = FocusNode();
     _focusNode.addListener(() => setState(() {}));
+    _animationControler =
+        AnimationController(duration: const Duration(seconds: 30), vsync: this);
+    _animation = Tween<double>(begin: 1, end: 0).animate(_animationControler)
+      ..addListener(() {
+        setState(() {});
+      });
+    startTimer();
     _fetchContent();
   }
 
@@ -74,6 +88,7 @@ class _LessonScreenState extends State<LessonScreen> {
   void dispose() {
     _answerController.dispose();
     _focusNode.dispose();
+    _animationControler.dispose();
     super.dispose();
   }
 
@@ -167,6 +182,8 @@ class _LessonScreenState extends State<LessonScreen> {
 
     final currentContent = contentItems[currentContentIndex];
     final quizType = currentContent['type'];
+    timer?.cancel();
+    _animationControler.stop();
 
     setState(() {
       hasAnswered = true;
@@ -238,6 +255,42 @@ class _LessonScreenState extends State<LessonScreen> {
         isAnswerCorrect = false;
       }
     });
+  }
+
+  void startTimer() {
+    timer?.cancel();
+    timeLeft = 30;
+    _animationControler.reset();
+    _animationControler.forward();
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (!mounted) {
+        timer.cancel();
+        return;
+      }
+
+      if (timeLeft > 0) {
+        setState(() {
+          timeLeft--;
+        });
+      } else {
+        timer.cancel();
+        if (!hasAnswered && mounted) {
+          _checkAnswer(-1);
+        }
+      }
+    });
+  }
+
+  bool _isQuizType(String? type) {
+    const quizTypes = {
+      'quiz',
+      'gif_quiz',
+      'gif_image_quiz',
+      'gif_image_matching_quiz',
+      'gif_missing_word_quiz',
+      'gif_input_word_quiz',
+    };
+    return quizTypes.contains(type);
   }
 
   void handleTopItemTap(int index) {
@@ -2256,29 +2309,6 @@ class _LessonScreenState extends State<LessonScreen> {
     });
   }
 
-  void resetQuestionState() {
-    hasAnswered = false;
-    isAnswerCorrect = false;
-    selectedOption = null;
-    selectedTopIndex = null;
-    selectedBottomIndex = null;
-    selectedBlankAnswer = null;
-    userMatches.clear();
-    autoMatches.clear();
-    _answerController.clear();
-  }
-
-  void _goToNextContent() {
-    if (currentContentIndex < contentItems.length - 1) {
-      setState(() {
-        currentContentIndex++;
-        resetQuestionState();
-      });
-    } else {
-      _completeLesson();
-    }
-  }
-
   Future<void> _completeLesson() async {
     _showLoadingDialog();
 
@@ -2387,6 +2417,39 @@ class _LessonScreenState extends State<LessonScreen> {
     }
   }
 
+  void resetQuestionState() {
+    hasAnswered = false;
+    isAnswerCorrect = false;
+    selectedOption = null;
+    selectedTopIndex = null;
+    selectedBottomIndex = null;
+    selectedBlankAnswer = null;
+    userMatches.clear();
+    autoMatches.clear();
+    _answerController.clear();
+    _animationControler.reset();
+  }
+
+  void _goToNextContent() {
+    if (currentContentIndex < contentItems.length - 1) {
+      setState(() {
+        currentContentIndex++;
+        resetQuestionState();
+      });
+      final nextType = contentItems[currentContentIndex]['type'];
+      final isQuiz = _isQuizType(nextType);
+
+      if (isQuiz) {
+        startTimer();
+      } else {
+        timer?.cancel();
+        _animationControler.reset();
+      }
+    } else {
+      _completeLesson();
+    }
+  }
+
   void _showLoadingDialog() {
     showDialog(
       context: context,
@@ -2407,6 +2470,9 @@ class _LessonScreenState extends State<LessonScreen> {
     final progressValue = totalContentCount > 0
         ? (currentContentIndex + 1) / totalContentCount
         : 0;
+    final currentType = contentItems.isNotEmpty
+        ? contentItems[currentContentIndex]['type']
+        : null;
 
     return Scaffold(
       backgroundColor: const Color(0XFFFFFFFF),
@@ -2414,7 +2480,7 @@ class _LessonScreenState extends State<LessonScreen> {
         children: [
           const SizedBox(height: 40),
           Padding(
-            padding: const EdgeInsets.only(left: 15, right: 25),
+            padding: const EdgeInsets.only(left: 15, right: 17),
             child: Row(
               children: [
                 InkWell(
@@ -2442,6 +2508,48 @@ class _LessonScreenState extends State<LessonScreen> {
                     value: progressValue,
                   ),
                 ),
+                const SizedBox(width: 13),
+                if (_isQuizType(currentType))
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: timeLeft > 10
+                              ? const Color(0XFFC2EABD)
+                              : const Color(0XFFFEE4E2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: CircularProgressIndicator(
+                          value: _animation.value,
+                          backgroundColor: const Color(0XFFF0F0F0),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            timeLeft > 10
+                                ? const Color(0XFF118611)
+                                : const Color(0XFFD92D20),
+                          ),
+                          strokeWidth: 3,
+                        ),
+                      ),
+                      Text(
+                        timeLeft.toString(),
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: timeLeft > 10
+                              ? const Color(0XFF118611)
+                              : const Color(0XFFD92D20),
+                        ),
+                      ),
+                    ],
+                  )
+                else
+                  const SizedBox(
+                    width: 40,
+                    height: 40,
+                  ),
               ],
             ),
           ),

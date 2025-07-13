@@ -329,6 +329,10 @@ class _LessonResultScreenState extends State<LessonResultScreen> {
       return Column(
         children: [
           InkWell(
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            overlayColor: MaterialStateProperty.all(Colors.transparent),
             onTap: isPassed ? _goToNextLesson : _repeatCurrentLesson,
             child: Container(
               width: double.infinity,
@@ -352,6 +356,10 @@ class _LessonResultScreenState extends State<LessonResultScreen> {
           ),
           const SizedBox(height: 8),
           InkWell(
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            overlayColor: MaterialStateProperty.all(Colors.transparent),
             onTap: isPassed ? _repeatCurrentLesson : _goToNextLesson,
             child: Container(
               width: double.infinity,
