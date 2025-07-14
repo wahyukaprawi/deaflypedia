@@ -67,8 +67,9 @@ class _SelectAvatarState extends State<SelectAvatar> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               margin: const EdgeInsets.symmetric(vertical: 8),
@@ -112,79 +113,76 @@ class _SelectAvatarState extends State<SelectAvatar> {
             ),
             const SizedBox(height: 15),
             if (isLoading)
-              const Expanded(
-                child: Center(
-                  child: CircularProgressIndicator(
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(Color(0xFF4CAF50)),
-                  ),
+              const Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF4CAF50)),
                 ),
               )
             else
-              Expanded(
-                child: GridView.builder(
-                  itemCount: avatarUrls.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 20,
-                  ),
-                  itemBuilder: (context, index) {
-                    final isSelected = selectedIndex == index;
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (selectedIndex == index) {
-                            selectedIndex = null;
-                          } else {
-                            selectedIndex = index;
-                            final selectedAvatar = avatarUrls[selectedIndex!];
-                            widget.onAvatarSelected(selectedAvatar);
-                          }
-                        });
-                      },
-                      child: Center(
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              width: itemSize,
-                              height: itemSize,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: isSelected
-                                      ? const Color(0XFF4CAF50)
-                                      : Colors.transparent,
-                                  width: 3,
-                                ),
-                              ),
-                              child: ClipOval(
-                                child: Image.network(
-                                  avatarUrls[index],
-                                  width: itemSize,
-                                  height: itemSize,
-                                  fit: BoxFit.cover,
-                                  color: isSelected
-                                      ? const Color(0XFF000000).withOpacity(0.3)
-                                      : null,
-                                  colorBlendMode:
-                                      isSelected ? BlendMode.darken : null,
-                                ),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: avatarUrls.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 20,
+                ),
+                itemBuilder: (context, index) {
+                  final isSelected = selectedIndex == index;
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (selectedIndex == index) {
+                          selectedIndex = null;
+                        } else {
+                          selectedIndex = index;
+                          final selectedAvatar = avatarUrls[selectedIndex!];
+                          widget.onAvatarSelected(selectedAvatar);
+                        }
+                      });
+                    },
+                    child: Center(
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            width: itemSize,
+                            height: itemSize,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: isSelected
+                                    ? const Color(0XFF4CAF50)
+                                    : Colors.transparent,
+                                width: 3,
                               ),
                             ),
-                            if (isSelected)
-                              const Image(
-                                width: 25,
-                                height: 19,
-                                image: AssetImage(icCheck),
+                            child: ClipOval(
+                              child: Image.network(
+                                avatarUrls[index],
+                                width: itemSize,
+                                height: itemSize,
+                                fit: BoxFit.cover,
+                                color: isSelected
+                                    ? const Color(0XFF000000).withOpacity(0.3)
+                                    : null,
+                                colorBlendMode:
+                                    isSelected ? BlendMode.darken : null,
                               ),
-                          ],
-                        ),
+                            ),
+                          ),
+                          if (isSelected)
+                            const Image(
+                              width: 25,
+                              height: 19,
+                              image: AssetImage(icCheck),
+                            ),
+                        ],
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
               ),
           ],
         ),
@@ -197,8 +195,9 @@ void showSelectAvatar(BuildContext context, Function(String) onAvatarSelected) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    builder: (BuildContext context) => SizedBox(
-      height: 420,
+    builder: (BuildContext context) => Padding(
+      padding:
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: SelectAvatar(onAvatarSelected: onAvatarSelected),
     ),
   );
