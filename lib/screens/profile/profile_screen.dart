@@ -505,106 +505,106 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
       backgroundColor: const Color(0XFFFFFFFF),
       resizeToAvoidBottomInset: false,
       body: isLoading
-          ? const Center(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF4CAF50)),
+    ? const Center(
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF4CAF50)),
+        ),
+      )
+    : LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight,
               ),
-            )
-          : userData == null
-              ? Center(
-                  child: Text(
-                    'Data pengguna tidak ditemukan',
-                    style: GoogleFonts.poppins(
-                      color: const Color(0XFF000000),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                )
-              : LayoutBuilder(
-                  builder: (context, constraints) {
-                    return SingleChildScrollView(
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight: constraints.maxHeight,
-                        ),
-                        child: IntrinsicHeight(
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 25, right: 25, bottom: 30),
-                            child: Column(
-                              children: [
-                                const SizedBox(height: 40),
-                                Stack(
-                                  children: [
-                                    Center(
-                                      child: Text(
-                                        'Profile',
-                                        style: GoogleFonts.poppins(
-                                          color: const Color(0XFF000000),
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      right: 0,
-                                      child: InkWell(
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        overlayColor: MaterialStateProperty.all(
-                                            Colors.transparent),
-                                        onTap: () {
-                                          showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return DialogLogout(
-                                                logout: () => logOut(context),
-                                              );
-                                            },
-                                          );
-                                        },
-                                        child: const Padding(
-                                          padding: EdgeInsets.only(top: 4),
-                                          child: Icon(
-                                            Icons.logout_rounded,
-                                            size: 22,
-                                            color: Color(0XFFD92D20),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+              child: IntrinsicHeight(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: 25, right: 25, bottom: 30),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 40),
+                      Stack(
+                        children: [
+                          Center(
+                            child: Text(
+                              'Profile',
+                              style: GoogleFonts.poppins(
+                                color: const Color(0XFF000000),
+                                fontSize: 22,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            right: 0,
+                            child: InkWell(
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              overlayColor:
+                                  MaterialStateProperty.all(Colors.transparent),
+                              onTap: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return DialogLogout(
+                                      logout: () => logOut(context),
+                                    );
+                                  },
+                                );
+                              },
+                              child: const Padding(
+                                padding: EdgeInsets.only(top: 4),
+                                child: Icon(
+                                  Icons.logout_rounded,
+                                  size: 22,
+                                  color: Color(0XFFD92D20),
                                 ),
-                                const SizedBox(height: 25),
-                                buildProfileHeader(),
-                                const SizedBox(height: 50),
-                                buildUserDetails(),
-                                const Spacer(),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: Text(
-                                    'Deaflypedia v.1.0',
-                                    style: GoogleFonts.poppins(
-                                      color: const Color(0XFF999999),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                buildActionButtons(),
-                              ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 25),
+                      if (userData == null)
+                        Center(
+                          child: Text(
+                            'Data pengguna tidak ditemukan',
+                            style: GoogleFonts.poppins(
+                              color: const Color(0XFF000000),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        )
+                      else ...[
+                        buildProfileHeader(),
+                        const SizedBox(height: 50),
+                        buildUserDetails(),
+                        const Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Text(
+                            'Deaflypedia v.1.0',
+                            style: GoogleFonts.poppins(
+                              color: const Color(0XFF999999),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w300,
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  },
+                        const SizedBox(height: 15),
+                        buildActionButtons(),
+                      ],
+                    ],
+                  ),
                 ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
