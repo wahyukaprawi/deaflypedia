@@ -91,8 +91,8 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
       if (!mounted) return;
       setState(() {
         userData = doc.data() as Map<String, dynamic>?;
-        _nameController.text = userData?['username'] ?? '';
-        _ageController.text = userData?['age']?.toString() ?? '';
+        _nameController.text = userData?['username'] ?? 'guest';
+        _ageController.text = userData?['age']?.toString() ?? '0';
         avatarPath = userData?['avatar'];
         isLoading = false;
       });
@@ -105,7 +105,7 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Error fetching user data: $e'),
+            content: Text('Kesalahan saat mengambil data pengguna $e'),
           ),
         );
       }
@@ -122,11 +122,11 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
       });
 
       if (kDebugMode) {
-        print("Avatar berhasil disimpan ke Firestore.");
+        print("Avatar berhasil disimpan");
       }
     } catch (e) {
       if (kDebugMode) {
-        print("Gagal menyimpan avatar ke Firestore: $e");
+        print("Gagal menyimpan avatar $e");
       }
     }
   }
@@ -249,19 +249,26 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
     return Column(
       children: [
         ClipOval(
-          child: Image.network(
-            avatarPath!,
+  child: avatarPath != null
+      ? Image.network(
+          avatarPath!,
+          width: 105,
+          height: 105,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) => Image.asset(
+            defaultImage,
             width: 105,
             height: 105,
             fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => Image.asset(
-              defaultImage,
-              width: 105,
-              height: 105,
-              fit: BoxFit.cover,
-            ),
           ),
+        )
+      : Image.asset(
+          defaultImage,
+          width: 105,
+          height: 105,
+          fit: BoxFit.cover,
         ),
+),
         const SizedBox(height: 20),
         InkWell(
           focusColor: Colors.transparent,
@@ -567,18 +574,6 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
                         ],
                       ),
                       const SizedBox(height: 25),
-                      if (userData == null)
-                        Center(
-                          child: Text(
-                            'Data pengguna tidak ditemukan',
-                            style: GoogleFonts.poppins(
-                              color: const Color(0XFF000000),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        )
-                      else ...[
                         buildProfileHeader(),
                         const SizedBox(height: 50),
                         buildUserDetails(),
@@ -597,7 +592,6 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
                         const SizedBox(height: 15),
                         buildActionButtons(),
                       ],
-                    ],
                   ),
                 ),
               ),

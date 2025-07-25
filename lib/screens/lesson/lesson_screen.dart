@@ -12,7 +12,6 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../utils/custom_button_check.dart';
@@ -105,7 +104,7 @@ class _LessonScreenState extends State<LessonScreen>
         if (!mounted) return;
         setState(() {
           isLoading = false;
-          errorMessage = 'Lesson not found';
+          errorMessage = 'Pelajaran tidak ditemukan';
         });
         return;
       }
@@ -125,7 +124,7 @@ class _LessonScreenState extends State<LessonScreen>
         if (!mounted) return;
         setState(() {
           isLoading = false;
-          errorMessage = 'Invalid content format: Expected array';
+          errorMessage = 'Format konten tidak valid';
         });
         return;
       }
@@ -169,11 +168,8 @@ class _LessonScreenState extends State<LessonScreen>
       if (!mounted) return;
       setState(() {
         isLoading = false;
-        errorMessage = 'Failed to load content: ${e.toString()}';
+        errorMessage = 'Gagal untuk memuat konten ${e.toString()}';
       });
-      if (kDebugMode) {
-        print('Error fetching content: $e');
-      }
     }
   }
 
@@ -202,7 +198,7 @@ class _LessonScreenState extends State<LessonScreen>
             xp += 10;
           }
         } catch (e) {
-          debugPrint('Error in matching quiz: $e');
+          debugPrint('Kesalahan dalam mencocokkan kuis $e');
           isAnswerCorrect = false;
         }
         return;
@@ -232,7 +228,7 @@ class _LessonScreenState extends State<LessonScreen>
             xp += 10;
           }
         } catch (e) {
-          debugPrint('Error in input word quiz: $e');
+          debugPrint('Kesalahan dalam kuis input kata $e');
           isAnswerCorrect = false;
         }
         return;
@@ -251,7 +247,7 @@ class _LessonScreenState extends State<LessonScreen>
         isAnswerCorrect = correctIndex == selectedOptionIndex;
         if (isAnswerCorrect) xp += 10;
       } catch (e) {
-        debugPrint('Error checking answer: $e');
+        debugPrint('Kesalahan pemeriksaan jawaban $e');
         isAnswerCorrect = false;
       }
     });
@@ -488,8 +484,9 @@ class _LessonScreenState extends State<LessonScreen>
   }
 
   Widget _buildVocabularyContent(Map<String, dynamic> content) {
-    final contentTitle = content['contentTitle'] ?? 'Vocabulary';
-    final vocabularyText = content['vocabularyText'] ?? 'No vocabulary text';
+    final contentTitle = content['contentTitle'] ?? 'Kosakata';
+    final vocabularyText =
+        content['vocabularyText'] ?? 'Tidak ada teks kosakata';
     final gifUrl = content['gifUrl'] as String?;
 
     return Column(
@@ -569,7 +566,7 @@ class _LessonScreenState extends State<LessonScreen>
 
   Widget _buildQuizContent(Map<String, dynamic> content) {
     final options = List<String>.from(content['options'] ?? []);
-    final questionText = content['questionText'] ?? 'No question text';
+    final questionText = content['questionText'] ?? 'Tidak ada teks pertanyaan';
     final gifUrl = content['gifUrl'] as String?;
     final correctOptionIndex = content['correctOptionIndex'] ?? 0;
 
@@ -783,7 +780,7 @@ class _LessonScreenState extends State<LessonScreen>
       return {'text': item.toString()};
     }).toList();
 
-    final questionText = content['questionText'] ?? 'No question text';
+    final questionText = content['questionText'] ?? 'Tidak ada teks pertanyaan';
 
     return Column(
       children: [
@@ -1044,7 +1041,7 @@ class _LessonScreenState extends State<LessonScreen>
       if (item is Map<String, dynamic>) return item;
       return {'text': item.toString()};
     }).toList();
-    final questionText = content['questionText'] ?? 'No question text';
+    final questionText = content['questionText'] ?? 'Tidak ada teks pertanyaan';
     final gifUrl = content['gifUrl'] as String?;
 
     return Column(
@@ -1345,7 +1342,7 @@ class _LessonScreenState extends State<LessonScreen>
   }
 
   Widget _buildGifImageMatchingQuizContent(Map<String, dynamic> content) {
-    final questionText = content['questionText'] ?? 'No question text';
+    final questionText = content['questionText'] ?? 'Tidak ada teks pertanyaan';
     final topItems = List<Map<String, dynamic>>.from(content['topItems'] ?? []);
     final bottomItems =
         List<Map<String, dynamic>>.from(content['bottomItems'] ?? []);
@@ -1595,8 +1592,9 @@ class _LessonScreenState extends State<LessonScreen>
   }
 
   Widget _buildMissingWordQuizContent(Map<String, dynamic> content) {
-    final questionText = content['questionText'] ?? 'No question text';
-    final fullPhrase = content['fullPhrase'] ?? 'No fullPhrase text';
+    final questionText = content['questionText'] ?? 'Tidak ada teks pertanyaan';
+    final fullPhrase =
+        content['fullPhrase'] ?? 'Tidak ada teks kalimat lengkap';
     final options = List<String>.from(content['options'] ?? []);
     final gifUrl = content['gifUrl'] as String?;
     final correctOptionIndex = content['correctOptionIndex'] ?? 0;
@@ -1920,7 +1918,7 @@ class _LessonScreenState extends State<LessonScreen>
   }
 
   Widget _buildInputQuizContent(Map<String, dynamic> content) {
-    final questionText = content['questionText'] ?? 'No question text';
+    final questionText = content['questionText'] ?? 'Tidak ada teks pertanyaan';
     final gifUrl = content['gifUrl'] as String?;
 
     return LayoutBuilder(builder: (context, constraints) {
@@ -2211,7 +2209,7 @@ class _LessonScreenState extends State<LessonScreen>
     }
 
     if (contentItems.isEmpty) {
-      return const Center(child: Text('No content available'));
+      return const Center(child: Text('Tidak ada konten tersedia'));
     }
 
     final content = contentItems[currentContentIndex];
@@ -2413,7 +2411,6 @@ class _LessonScreenState extends State<LessonScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Gagal menyimpan progress: ${e.toString()}')),
       );
-      debugPrint('Error in _completeLesson: $e');
     }
   }
 

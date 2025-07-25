@@ -43,308 +43,8 @@ class _SignupProfilePictureScreenState
 
       final List<Map<String, dynamic>> globalCategories = [
         {
-          'id': 'ekspresi umum',
-          'order': '1',
-          'iconLockUrl':
-              'https://res.cloudinary.com/dqyicvxey/image/upload/ic_expression_lock_bytujx.png',
-          'iconUnlockUrl':
-              'https://res.cloudinary.com/dqyicvxey/image/upload/ic_expression_unlock_i69cdu.png',
-          'lessons': [
-            {
-              'id': 'lesson_1',
-              'lessonTitle': 'Pelajaran 1',
-              'lessonDescription': 'Belajar kosakata dasar',
-              'content': [
-                {
-                  'contentTitle': 'Belajar kosakata baru!',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/oke_niywpt.gif',
-                  'type': 'vocabulary',
-                  'vocabularyText': 'Oke'
-                },
-                {
-                  'contentTitle': 'Belajar kosakata baru!',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
-                  'type': 'vocabulary',
-                  'vocabularyText': 'Maaf'
-                },
-                {
-                  'correctOptionIndex': 0,
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/oke_niywpt.gif',
-                  'options': ['Oke', 'Maaf'],
-                  'questionText': 'Ayo tebak, ini kata apa?',
-                  'type': 'quiz',
-                },
-                {
-                  'contentTitle': 'Belajar kosakata baru!',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
-                  'type': 'vocabulary',
-                  'vocabularyText': 'Betul'
-                },
-                {
-                  'contentTitle': 'Belajar kosakata baru!',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/salah_lfnyxf.gif',
-                  'type': 'vocabulary',
-                  'vocabularyText': 'Salah'
-                },
-                {
-                  'correctOptionIndex': 1,
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
-                  'options': ['Salah', 'Betul'],
-                  'questionText': 'Ayo tebak, ini kata apa?',
-                  'type': 'quiz',
-                },
-                {
-                  'contentTitle': 'Belajar kosakata baru!',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/sakit_eowpin.gif',
-                  'type': 'vocabulary',
-                  'vocabularyText': 'Sakit'
-                },
-                {
-                  'contentTitle': 'Belajar kosakata baru!',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
-                  'type': 'vocabulary',
-                  'vocabularyText': 'Lelah'
-                },
-                {
-                  'correctOptionIndex': 1,
-                  'options': [
-                    {
-                      'gifUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/sakit_eowpin.gif',
-                      'text': 'Sakit'
-                    },
-                    {
-                      'gifUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
-                      'text': 'Lelah'
-                    }
-                  ],
-                  'questionText': 'Lelah',
-                  'type': 'gif_quiz',
-                },
-                {
-                  'contentTitle': 'Belajar kosakata baru!',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_enw3re.gif',
-                  'type': 'vocabulary',
-                  'vocabularyText': 'Sibuk'
-                },
-                {
-                  'contentTitle': 'Belajar kosakata baru!',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/tidak_apa-apa_ph3avi.gif',
-                  'type': 'vocabulary',
-                  'vocabularyText': 'Tidak Apa-apa'
-                },
-                {
-                  'correctOptionIndex': 0,
-                  'options': [
-                    {
-                      'gifUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/tidak_apa-apa_ph3avi.gif',
-                      'text': 'Tidak Apa-apa'
-                    },
-                    {
-                      'gifUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_enw3re.gif',
-                      'text': 'Sibuk'
-                    }
-                  ],
-                  'questionText': 'Tidak Apa-apa',
-                  'type': 'gif_quiz',
-                },
-              ]
-            },
-            {
-              'id': 'lesson_2',
-              'lessonTitle': 'Pelajaran 2',
-              'lessonDescription': 'Belajar kosakata ikonik',
-              'content': [
-                {
-                  'correctOptionIndex': 0,
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/salah_lfnyxf.gif',
-                  'options': [
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/salah_ooi9w9.png',
-                      'text': 'Salah'
-                    },
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/oke_dduupc.png',
-                      'text': 'Oke'
-                    }
-                  ],
-                  'questionText': 'Menurutmu, ini kata apa?',
-                  'type': 'gif_image_quiz',
-                },
-                {
-                  'correctOptionIndex': 1,
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
-                  'options': [
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/salah_ooi9w9.png',
-                      'text': 'Salah'
-                    },
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/betul_em6iog.png',
-                      'text': 'Betul'
-                    }
-                  ],
-                  'questionText': 'Menurutmu, ini kata apa?',
-                  'type': 'gif_image_quiz',
-                },
-                {
-                  'correctOptionIndex': 1,
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
-                  'options': [
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_kcoarr.png',
-                      'text': 'Sibuk'
-                    },
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_zh4vfu.png',
-                      'text': 'Maaf'
-                    }
-                  ],
-                  'questionText': 'Menurutmu, ini kata apa?',
-                  'type': 'gif_image_quiz',
-                },
-                {
-                  'bottomItems': [
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_awkmcd.png',
-                      'text': 'Lelah'
-                    },
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/tidak_apa-apa_a8r4b2.png',
-                      'text': 'Tidak Apa-apa'
-                    }
-                  ],
-                  'correctMatches': {'0': 1, '1': 0},
-                  'questionText': 'Cocokkan pasangan yang benar',
-                  'topItems': [
-                    {
-                      'gifUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/tidak_apa-apa_ph3avi.gif',
-                      'text': 'Tidak Apa-apa'
-                    },
-                    {
-                      'gifUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
-                      'text': 'Lelah'
-                    }
-                  ],
-                  'type': 'gif_image_matching_quiz',
-                },
-                {
-                  'bottomItems': [
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/betul_em6iog.png',
-                      'text': 'Betul'
-                    },
-                    {
-                      'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/salah_ooi9w9.png',
-                      'text': 'Salah'
-                    }
-                  ],
-                  'correctMatches': {'0': 0, '1': 1},
-                  'questionText': 'Cocokkan pasangan yang benar',
-                  'topItems': [
-                    {
-                      'gifUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
-                      'text': 'Betul'
-                    },
-                    {
-                      'gifUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/salah_lfnyxf.gif',
-                      'text': 'Salah'
-                    }
-                  ],
-                  'type': 'gif_image_matching_quiz',
-                }
-              ]
-            },
-            {
-              'id': 'lesson_3',
-              'lessonTitle': 'Pelajaran 3',
-              'lessonDescription': 'Mari berlatih!',
-              'content': [
-                {
-                  'correctOptionIndex': 1,
-                  'fullPhrase': '_____ saya tidak sengaja mendorongmu',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
-                  'options': ['Oke', 'Maaf'],
-                  'questionText': 'Lengkapi kata yang hilang',
-                  'type': 'gif_missing_word_quiz',
-                },
-                {
-                  'correctOptionIndex': 1,
-                  'fullPhrase': 'Guru bilang _____ setelah saya menjawab benar',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
-                  'options': ['salah', 'betul'],
-                  'questionText': 'Lengkapi kata yang hilang',
-                  'type': 'gif_missing_word_quiz',
-                },
-                {
-                  'correctOptionIndex': 0,
-                  'fullPhrase': 'Saya merasa _____ setelah bermain seharian',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
-                  'options': ['lelah', 'sakit'],
-                  'questionText': 'Lengkapi kata yang hilang',
-                  'type': 'gif_missing_word_quiz',
-                },
-                {
-                  'correctAnswer': 'Maaf',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
-                  'questionText': 'Tulis kata yang ditunjukkan!',
-                  'type': 'gif_input_word_quiz',
-                },
-                {
-                  'correctAnswer': 'Lelah',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
-                  'questionText': 'Tulis kata yang ditunjukkan!',
-                  'type': 'gif_input_word_quiz',
-                },
-                {
-                  'correctAnswer': 'Sibuk',
-                  'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_enw3re.gif',
-                  'questionText': 'Tulis kata yang ditunjukkan!',
-                  'type': 'gif_input_word_quiz',
-                },
-              ]
-            },
-          ]
-        },
-        {
           'id': 'orang & keluarga',
-          'order': '2',
+          'order': '1',
           'iconLockUrl':
               'https://res.cloudinary.com/dqyicvxey/image/upload/ic_family_lock_mt1jwz.png',
           'iconUnlockUrl':
@@ -635,6 +335,306 @@ class _SignupProfilePictureScreenState
                   'correctAnswer': 'Anak',
                   'gifUrl':
                       'https://res.cloudinary.com/dqyicvxey/image/upload/anak_freew7.gif',
+                  'questionText': 'Tulis kata yang ditunjukkan!',
+                  'type': 'gif_input_word_quiz',
+                },
+              ]
+            },
+          ]
+        },
+        {
+          'id': 'ekspresi umum',
+          'order': '2',
+          'iconLockUrl':
+              'https://res.cloudinary.com/dqyicvxey/image/upload/ic_expression_lock_bytujx.png',
+          'iconUnlockUrl':
+              'https://res.cloudinary.com/dqyicvxey/image/upload/ic_expression_unlock_i69cdu.png',
+          'lessons': [
+            {
+              'id': 'lesson_1',
+              'lessonTitle': 'Pelajaran 1',
+              'lessonDescription': 'Belajar kosakata dasar',
+              'content': [
+                {
+                  'contentTitle': 'Belajar kosakata baru!',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/oke_niywpt.gif',
+                  'type': 'vocabulary',
+                  'vocabularyText': 'Oke'
+                },
+                {
+                  'contentTitle': 'Belajar kosakata baru!',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
+                  'type': 'vocabulary',
+                  'vocabularyText': 'Maaf'
+                },
+                {
+                  'correctOptionIndex': 0,
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/oke_niywpt.gif',
+                  'options': ['Oke', 'Maaf'],
+                  'questionText': 'Ayo tebak, ini kata apa?',
+                  'type': 'quiz',
+                },
+                {
+                  'contentTitle': 'Belajar kosakata baru!',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
+                  'type': 'vocabulary',
+                  'vocabularyText': 'Betul'
+                },
+                {
+                  'contentTitle': 'Belajar kosakata baru!',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/salah_lfnyxf.gif',
+                  'type': 'vocabulary',
+                  'vocabularyText': 'Salah'
+                },
+                {
+                  'correctOptionIndex': 1,
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
+                  'options': ['Salah', 'Betul'],
+                  'questionText': 'Ayo tebak, ini kata apa?',
+                  'type': 'quiz',
+                },
+                {
+                  'contentTitle': 'Belajar kosakata baru!',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/sakit_eowpin.gif',
+                  'type': 'vocabulary',
+                  'vocabularyText': 'Sakit'
+                },
+                {
+                  'contentTitle': 'Belajar kosakata baru!',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
+                  'type': 'vocabulary',
+                  'vocabularyText': 'Lelah'
+                },
+                {
+                  'correctOptionIndex': 1,
+                  'options': [
+                    {
+                      'gifUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/sakit_eowpin.gif',
+                      'text': 'Sakit'
+                    },
+                    {
+                      'gifUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
+                      'text': 'Lelah'
+                    }
+                  ],
+                  'questionText': 'Lelah',
+                  'type': 'gif_quiz',
+                },
+                {
+                  'contentTitle': 'Belajar kosakata baru!',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_enw3re.gif',
+                  'type': 'vocabulary',
+                  'vocabularyText': 'Sibuk'
+                },
+                {
+                  'contentTitle': 'Belajar kosakata baru!',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/tidak_apa-apa_ph3avi.gif',
+                  'type': 'vocabulary',
+                  'vocabularyText': 'Tidak Apa-apa'
+                },
+                {
+                  'correctOptionIndex': 0,
+                  'options': [
+                    {
+                      'gifUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/tidak_apa-apa_ph3avi.gif',
+                      'text': 'Tidak Apa-apa'
+                    },
+                    {
+                      'gifUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_enw3re.gif',
+                      'text': 'Sibuk'
+                    }
+                  ],
+                  'questionText': 'Tidak Apa-apa',
+                  'type': 'gif_quiz',
+                },
+              ]
+            },
+            {
+              'id': 'lesson_2',
+              'lessonTitle': 'Pelajaran 2',
+              'lessonDescription': 'Belajar kosakata ikonik',
+              'content': [
+                {
+                  'correctOptionIndex': 0,
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/salah_lfnyxf.gif',
+                  'options': [
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/salah_ooi9w9.png',
+                      'text': 'Salah'
+                    },
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/oke_dduupc.png',
+                      'text': 'Oke'
+                    }
+                  ],
+                  'questionText': 'Menurutmu, ini kata apa?',
+                  'type': 'gif_image_quiz',
+                },
+                {
+                  'correctOptionIndex': 1,
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
+                  'options': [
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/salah_ooi9w9.png',
+                      'text': 'Salah'
+                    },
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/betul_em6iog.png',
+                      'text': 'Betul'
+                    }
+                  ],
+                  'questionText': 'Menurutmu, ini kata apa?',
+                  'type': 'gif_image_quiz',
+                },
+                {
+                  'correctOptionIndex': 1,
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
+                  'options': [
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_kcoarr.png',
+                      'text': 'Sibuk'
+                    },
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_zh4vfu.png',
+                      'text': 'Maaf'
+                    }
+                  ],
+                  'questionText': 'Menurutmu, ini kata apa?',
+                  'type': 'gif_image_quiz',
+                },
+                {
+                  'bottomItems': [
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_awkmcd.png',
+                      'text': 'Lelah'
+                    },
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/tidak_apa-apa_a8r4b2.png',
+                      'text': 'Tidak Apa-apa'
+                    }
+                  ],
+                  'correctMatches': {'0': 1, '1': 0},
+                  'questionText': 'Cocokkan pasangan yang benar',
+                  'topItems': [
+                    {
+                      'gifUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/tidak_apa-apa_ph3avi.gif',
+                      'text': 'Tidak Apa-apa'
+                    },
+                    {
+                      'gifUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
+                      'text': 'Lelah'
+                    }
+                  ],
+                  'type': 'gif_image_matching_quiz',
+                },
+                {
+                  'bottomItems': [
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/betul_em6iog.png',
+                      'text': 'Betul'
+                    },
+                    {
+                      'imageUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/salah_ooi9w9.png',
+                      'text': 'Salah'
+                    }
+                  ],
+                  'correctMatches': {'0': 0, '1': 1},
+                  'questionText': 'Cocokkan pasangan yang benar',
+                  'topItems': [
+                    {
+                      'gifUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
+                      'text': 'Betul'
+                    },
+                    {
+                      'gifUrl':
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/salah_lfnyxf.gif',
+                      'text': 'Salah'
+                    }
+                  ],
+                  'type': 'gif_image_matching_quiz',
+                }
+              ]
+            },
+            {
+              'id': 'lesson_3',
+              'lessonTitle': 'Pelajaran 3',
+              'lessonDescription': 'Mari berlatih!',
+              'content': [
+                {
+                  'correctOptionIndex': 1,
+                  'fullPhrase': '_____ saya tidak sengaja mendorongmu',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
+                  'options': ['Oke', 'Maaf'],
+                  'questionText': 'Lengkapi kata yang hilang',
+                  'type': 'gif_missing_word_quiz',
+                },
+                {
+                  'correctOptionIndex': 1,
+                  'fullPhrase': 'Guru bilang _____ setelah saya menjawab benar',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
+                  'options': ['salah', 'betul'],
+                  'questionText': 'Lengkapi kata yang hilang',
+                  'type': 'gif_missing_word_quiz',
+                },
+                {
+                  'correctOptionIndex': 0,
+                  'fullPhrase': 'Saya merasa _____ setelah bermain seharian',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
+                  'options': ['lelah', 'sakit'],
+                  'questionText': 'Lengkapi kata yang hilang',
+                  'type': 'gif_missing_word_quiz',
+                },
+                {
+                  'correctAnswer': 'Maaf',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
+                  'questionText': 'Tulis kata yang ditunjukkan!',
+                  'type': 'gif_input_word_quiz',
+                },
+                {
+                  'correctAnswer': 'Lelah',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
+                  'questionText': 'Tulis kata yang ditunjukkan!',
+                  'type': 'gif_input_word_quiz',
+                },
+                {
+                  'correctAnswer': 'Sibuk',
+                  'gifUrl':
+                      'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_enw3re.gif',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
@@ -1738,7 +1738,7 @@ class _SignupProfilePictureScreenState
         isLoading = false;
       });
     } catch (e) {
-      debugPrint("Error fetching avatars: $e");
+      debugPrint("Kesalahan saat mengambil avatar $e");
       setState(() {
         isLoading = false;
       });

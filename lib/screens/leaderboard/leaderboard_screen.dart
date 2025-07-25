@@ -129,7 +129,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                             itemCount: otherUsers.length,
                             itemBuilder: (context, index) {
                               var user = otherUsers[index];
-                              final avatarUrl = user['avatar'] ?? '';
+                              final avatarUrl = user['avatar'];
                               return Padding(
                                 padding: const EdgeInsets.only(bottom: 10),
                                 child: Container(
@@ -175,7 +175,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                         ),
                                         const SizedBox(width: 8),
                                         Text(
-                                          user['username'] ?? 'No Name',
+                                          user['username'] ?? 'guest',
                                           style: GoogleFonts.poppins(
                                             color: const Color(0XFF000000),
                                             fontSize: 15,
@@ -226,7 +226,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
         : rank == 2
             ? const AssetImage(icMedal2)
             : const AssetImage(icMedal3);
-    final avatarUrl = user['avatar'] ?? '';
+    final avatarUrl = user['avatar'];
     return Transform.translate(
       offset: offset,
       child: Column(
@@ -256,7 +256,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
           ),
           const SizedBox(height: 10),
           Text(
-            user['username'] ?? 'No Name',
+            user['username'] ?? 'guest',
             style: GoogleFonts.poppins(
               color: const Color(0XFFFFFFFF),
               fontSize: 16,

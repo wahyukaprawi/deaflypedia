@@ -243,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     if (userDoc.exists) {
       final data = userDoc.data()!;
       setState(() {
-        username = data['username'];
+        username = data['username'] ?? 'guest';
         xp = data['xp'] ?? 0;
         streak = data['streak'] ?? 0;
         isyarat = data['isyarat'] ?? 0;
@@ -443,19 +443,13 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                   );
                 }
 
-                final data = snapshot.data!.data() as Map<String, dynamic>?;
+                final data = snapshot.data?.data() as Map<String, dynamic>?;
 
-                if (data == null) {
-                  return const Center(
-                    child: Text('Data pengguna tidak ditemukan'),
-                  );
-                }
-
-                final name = data['username'] ?? 'User';
-                final xp = data['xp'] ?? 0;
-                final streak = data['streak'] ?? 0;
-                final isyarat = data['isyarat'] ?? 0;
-                final lastClaim = (data['lastClaim'] as Timestamp?)?.toDate();
+                final name = data?['username'] ?? 'User';
+                final xp = data?['xp'] ?? 0;
+                final streak = data?['streak'] ?? 0;
+                final isyarat = data?['isyarat'] ?? 0;
+                final lastClaim = (data?['lastClaim'] as Timestamp?)?.toDate();
 
                 final now = DateTime.now();
                 final todayReset = DateTime(now.year, now.month, now.day, 7);
@@ -844,7 +838,9 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     if (i < categories.length)
                       Expanded(child: _buildLessonItem(i))
                     else
-                      const Expanded(child: SizedBox(width: 90)),
+                      const Expanded(
+                        child: SizedBox(width: 90),
+                      ),
                 ],
               ),
             );
@@ -877,7 +873,9 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
               if (mounted) setState(() {});
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Pelajaran masih terkunci')),
+                const SnackBar(
+                  content: Text('Pelajaran masih terkunci'),
+                ),
               );
             }
           },

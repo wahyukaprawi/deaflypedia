@@ -113,13 +113,6 @@ void showDetailAlphabet(BuildContext context, String letter) async {
   final doc =
       await FirebaseFirestore.instance.collection('alphabet').doc(letter).get();
 
-  if (!doc.exists || !doc.data()!.containsKey('gifUrl')) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Video untuk huruf $letter tidak ditemukan')),
-    );
-    return;
-  }
-
   final String gifUrl = doc['gifUrl'];
 
   showModalBottomSheet(

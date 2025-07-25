@@ -26,8 +26,8 @@ class Lesson {
     final data = doc.data() as Map<String, dynamic>;
     return Lesson(
       id: doc.id,
-      lessonTitle: data['lessonTitle'] ?? '',
-      lessonDescription: data['lessonDescription'] ?? '',
+      lessonTitle: data['lessonTitle'] ?? 'Pelajaran',
+      lessonDescription: data['lessonDescription'] ?? 'Deskripsi',
       isLocked: data['isLocked'] ?? false,
       isCompleted: data['isCompleted'] ?? false,
     );
@@ -152,8 +152,8 @@ class _LessonListScreenState extends State<LessonListScreen> {
           lessons.add(
             Lesson(
               id: lessonId,
-              lessonTitle: data['lessonTitle'] ?? '',
-              lessonDescription: data['lessonDescription'] ?? '',
+              lessonTitle: data['lessonTitle'] ?? 'Pelajaran',
+              lessonDescription: data['lessonDescription'] ?? 'Deskripsi',
               isLocked: lessonId != 'lesson_1' && !prevIsCompleted,
               isCompleted: (progressData['isCompleted'] as bool?) ?? false,
             ),
@@ -180,7 +180,7 @@ class _LessonListScreenState extends State<LessonListScreen> {
           }
 
           if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
+            return Center(child: Text('Terjadi kesalahan ${snapshot.error}'));
           }
 
           final lessons = snapshot.data ?? [];

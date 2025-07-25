@@ -41,7 +41,7 @@ class _SelectAvatarState extends State<SelectAvatar> {
         isLoading = false;
       });
     } catch (e) {
-      debugPrint("Error fetching avatars: $e");
+      debugPrint("Kesalahan saat mengambil avatar $e");
       setState(() {
         isLoading = false;
       });
