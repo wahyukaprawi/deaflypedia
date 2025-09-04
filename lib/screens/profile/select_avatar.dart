@@ -97,7 +97,7 @@ class _SelectAvatarState extends State<SelectAvatar> {
                   focusColor: Colors.transparent,
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
-                  overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  overlayColor: WidgetStateProperty.all(Colors.transparent),
                   onTap: () => Navigator.pop(context),
                   child: Container(
                     width: 48,
@@ -165,7 +165,7 @@ class _SelectAvatarState extends State<SelectAvatar> {
                                 height: itemSize,
                                 fit: BoxFit.cover,
                                 color: isSelected
-                                    ? const Color(0XFF000000).withOpacity(0.3)
+                                    ? const Color(0XFF000000).withValues(alpha:0.3)
                                     : null,
                                 colorBlendMode:
                                     isSelected ? BlendMode.darken : null,

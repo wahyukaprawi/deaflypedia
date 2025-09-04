@@ -70,7 +70,7 @@ class DialogLogout extends StatelessWidget {
                 focusColor: Colors.transparent,
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
-                overlayColor: MaterialStateProperty.all(Colors.transparent),
+                overlayColor: WidgetStateProperty.all(Colors.transparent),
                 onTap: () async {
                   _showLoadingDialog(context);
                   await logout();

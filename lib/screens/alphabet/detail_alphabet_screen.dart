@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../../utils/custom_alphabet_gif_with_sound.dart';
+
 class DetailAlphabetScreen extends StatelessWidget {
   final String letter;
   final String gifUrl;
@@ -75,30 +77,7 @@ class DetailAlphabetScreen extends StatelessWidget {
                 child: SizedBox(
                   height: 220,
                   width: double.infinity,
-                  child: Image.network(
-                    gifUrl,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return const Center(
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            Color(0xFF4CAF50),
-                          ),
-                        ),
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) {
-                      return Center(
-                        child: Text(
-                          'Gagal memuat GIF',
-                          style: GoogleFonts.poppins(
-                            color: const Color(0XFF000000),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                  child: CustAlphabetGifWithSound(gifUrl: gifUrl),
                 ),
               ),
             )

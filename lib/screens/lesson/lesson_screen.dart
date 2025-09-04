@@ -16,6 +16,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../utils/custom_button_check.dart';
 import '../../utils/custom_button_next_vocabulary.dart';
+import '../../utils/custom_gif_with_sound.dart';
 import '../../utils/custom_progress_bar.dart';
 
 class LessonScreen extends StatefulWidget {
@@ -506,25 +507,7 @@ class _LessonScreenState extends State<LessonScreen>
           SizedBox(
             width: double.infinity,
             height: 275,
-            child: Image.network(
-              gifUrl,
-              fit: BoxFit.cover,
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return const Center(
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      Color(0xFF4CAF50),
-                    ),
-                  ),
-                );
-              },
-              errorBuilder: (context, error, stackTrace) {
-                return const Center(
-                  child: Text('Gagal memuat Gif'),
-                );
-              },
-            ),
+            child: CustGifWithSound(gifUrl: gifUrl),
           ),
         const SizedBox(height: 30),
         Padding(
@@ -588,27 +571,7 @@ class _LessonScreenState extends State<LessonScreen>
             height: 275,
             child: Stack(
               children: [
-                Positioned.fill(
-                  child: Image.network(
-                    gifUrl,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return const Center(
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            Color(0xFF4CAF50),
-                          ),
-                        ),
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Center(
-                        child: Text('Gagal memuat GIF'),
-                      );
-                    },
-                  ),
-                ),
+                CustGifWithSound(gifUrl: gifUrl),
                 Positioned(
                   bottom: 0,
                   left: 0,
@@ -616,7 +579,7 @@ class _LessonScreenState extends State<LessonScreen>
                   child: Container(
                     height: 35,
                     color: hasAnswered
-                        ? const Color(0XFFFFFFFF).withOpacity(0.7)
+                        ? const Color(0XFFFFFFFF).withValues(alpha: 0.7)
                         : Colors.transparent,
                     alignment: Alignment.center,
                     child: Text(
@@ -913,7 +876,7 @@ class _LessonScreenState extends State<LessonScreen>
                           child: Container(
                             height: 35,
                             color: hasAnswered
-                                ? const Color(0XFFFFFFFF).withOpacity(0.7)
+                                ? const Color(0XFFFFFFFF).withValues(alpha: 0.7)
                                 : Colors.transparent,
                             alignment: Alignment.center,
                             child: Text(
@@ -1063,25 +1026,7 @@ class _LessonScreenState extends State<LessonScreen>
             child: Stack(
               children: [
                 Positioned.fill(
-                  child: Image.network(
-                    gifUrl,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return const Center(
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            Color(0xFF4CAF50),
-                          ),
-                        ),
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Center(
-                        child: Text('Gagal memuat GIF'),
-                      );
-                    },
-                  ),
+                  child: CustGifWithSound(gifUrl: gifUrl),
                 ),
                 Positioned(
                   bottom: 0,
@@ -1090,7 +1035,7 @@ class _LessonScreenState extends State<LessonScreen>
                   child: Container(
                     height: 35,
                     color: hasAnswered
-                        ? const Color(0XFFFFFFFF).withOpacity(0.7)
+                        ? const Color(0XFFFFFFFF).withValues(alpha: 0.7)
                         : Colors.transparent,
                     alignment: Alignment.center,
                     child: Text(
@@ -1218,7 +1163,8 @@ class _LessonScreenState extends State<LessonScreen>
                             child: Container(
                               height: 30,
                               color: hasAnswered
-                                  ? const Color(0XFFFFFFFF).withOpacity(0.7)
+                                  ? const Color(0XFFFFFFFF)
+                                      .withValues(alpha: 0.7)
                                   : Colors.transparent,
                               alignment: Alignment.center,
                               child: Text(
@@ -1540,7 +1486,7 @@ class _LessonScreenState extends State<LessonScreen>
                         child: Container(
                           height: 30,
                           color: hasAnswered
-                              ? const Color(0XFFFFFFFF).withOpacity(0.7)
+                              ? const Color(0XFFFFFFFF).withValues(alpha: 0.7)
                               : Colors.transparent,
                           alignment: Alignment.center,
                           child: Text(
@@ -1618,23 +1564,7 @@ class _LessonScreenState extends State<LessonScreen>
             child: Stack(
               children: [
                 Positioned.fill(
-                  child: Image.network(
-                    gifUrl,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return const Center(
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            Color(0xFF4CAF50),
-                          ),
-                        ),
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Center(child: Text('Gagal memuat GIF'));
-                    },
-                  ),
+                  child: CustGifWithSound(gifUrl: gifUrl),
                 ),
                 Positioned(
                   bottom: 0,
@@ -1643,7 +1573,7 @@ class _LessonScreenState extends State<LessonScreen>
                   child: Container(
                     height: 35,
                     color: hasAnswered
-                        ? const Color(0XFFFFFFFF).withOpacity(0.7)
+                        ? const Color(0XFFFFFFFF).withValues(alpha: 0.7)
                         : Colors.transparent,
                     alignment: Alignment.center,
                     child: Text(
@@ -1949,25 +1879,7 @@ class _LessonScreenState extends State<LessonScreen>
                         child: Stack(
                           children: [
                             Positioned.fill(
-                              child: Image.network(
-                                gifUrl,
-                                fit: BoxFit.cover,
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) return child;
-                                  return const Center(
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                          Color(0xFF4CAF50)),
-                                    ),
-                                  );
-                                },
-                                errorBuilder: (context, error, stackTrace) {
-                                  return const Center(
-                                    child: Text('Gagal memuat GIF'),
-                                  );
-                                },
-                              ),
+                              child: CustGifWithSound(gifUrl: gifUrl),
                             ),
                           ],
                         ),
@@ -1980,7 +1892,7 @@ class _LessonScreenState extends State<LessonScreen>
                           width: double.infinity,
                           height: 35,
                           color: hasAnswered
-                              ? const Color(0XFFFFFFFF).withOpacity(0.7)
+                              ? const Color(0XFFFFFFFF).withValues(alpha: 0.7)
                               : Colors.transparent,
                           alignment: Alignment.center,
                           child: Text(
@@ -2307,7 +2219,7 @@ class _LessonScreenState extends State<LessonScreen>
     });
   }
 
-  Future<void> _completeLesson() async {
+  Future<void> _updateLesson() async {
     _showLoadingDialog();
 
     try {
@@ -2329,6 +2241,8 @@ class _LessonScreenState extends State<LessonScreen>
       int percentage =
           totalQuestions == 0 ? 0 : ((xp ~/ 10) / totalQuestions * 100).round();
 
+      final passed = percentage >= 80;
+
       final batch = FirebaseFirestore.instance.batch();
 
       final currentLessonRef = FirebaseFirestore.instance
@@ -2343,17 +2257,21 @@ class _LessonScreenState extends State<LessonScreen>
       final alreadyCompleted = currentLessonSnap.exists &&
           (currentLessonSnap.data()?['isCompleted'] == true);
 
+      final previousScore =
+          (currentLessonSnap.data()?['score'] ?? 0).toDouble();
+      final newScore = percentage > previousScore ? percentage : previousScore;
+
       batch.set(
         currentLessonRef,
         {
-          'isCompleted': true,
-          'score': percentage,
+          'isCompleted': alreadyCompleted || passed, 
+          'score': newScore, 
           'lastAccessed': FieldValue.serverTimestamp(),
         },
         SetOptions(merge: true),
       );
 
-      if (!alreadyCompleted) {
+      if (passed && !alreadyCompleted) {
         await _updateUserIsyarat(isyarat);
 
         final currentNumber = int.tryParse(widget.lessonId.split('_').last);
@@ -2389,6 +2307,7 @@ class _LessonScreenState extends State<LessonScreen>
       }
 
       await batch.commit();
+
       await _updateUserXP(xp);
       await _updateUserStreak();
 
@@ -2443,7 +2362,7 @@ class _LessonScreenState extends State<LessonScreen>
         _animationControler.reset();
       }
     } else {
-      _completeLesson();
+      _updateLesson();
     }
   }
 
@@ -2484,7 +2403,7 @@ class _LessonScreenState extends State<LessonScreen>
                   focusColor: Colors.transparent,
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
-                  overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  overlayColor: WidgetStateProperty.all(Colors.transparent),
                   onTap: () {
                     showDialog(
                       context: context,

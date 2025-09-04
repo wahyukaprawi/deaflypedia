@@ -32,6 +32,7 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
   late OverlayEntry _overlayEntry;
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _klasifikasiController = TextEditingController();
 
   @override
   void initState() {
@@ -55,6 +56,7 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
     hideOverlay();
     _nameController.dispose();
     _ageController.dispose();
+    _klasifikasiController.dispose();
     super.dispose();
   }
 
@@ -93,6 +95,7 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
         userData = doc.data() as Map<String, dynamic>?;
         _nameController.text = userData?['username'] ?? 'guest';
         _ageController.text = userData?['age']?.toString() ?? '0';
+        _klasifikasiController.text = userData?['klasifikasi'] ?? '0 db';
         avatarPath = userData?['avatar'];
         isLoading = false;
       });
@@ -139,10 +142,16 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
           .update({
         'username': _nameController.text,
         'age': int.parse(_ageController.text),
+        'klasifikasi': _klasifikasiController.text,
         'avatar': avatarPath,
       });
 
       setState(() {
+        userData?['username'] = _nameController.text.trim();
+        userData?['age'] = int.parse(_ageController.text);
+        userData?['klasifikasi'] = _klasifikasiController.text.trim();
+        userData?['avatar'] = avatarPath;
+
         isFormChanged = false;
       });
 
@@ -249,32 +258,32 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
     return Column(
       children: [
         ClipOval(
-  child: avatarPath != null
-      ? Image.network(
-          avatarPath!,
-          width: 105,
-          height: 105,
-          fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) => Image.asset(
-            defaultImage,
-            width: 105,
-            height: 105,
-            fit: BoxFit.cover,
-          ),
-        )
-      : Image.asset(
-          defaultImage,
-          width: 105,
-          height: 105,
-          fit: BoxFit.cover,
+          child: avatarPath != null
+              ? Image.network(
+                  avatarPath!,
+                  width: 105,
+                  height: 105,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Image.asset(
+                    defaultImage,
+                    width: 105,
+                    height: 105,
+                    fit: BoxFit.cover,
+                  ),
+                )
+              : Image.asset(
+                  defaultImage,
+                  width: 105,
+                  height: 105,
+                  fit: BoxFit.cover,
+                ),
         ),
-),
         const SizedBox(height: 20),
         InkWell(
           focusColor: Colors.transparent,
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
           onTap: () async {
             showSelectAvatar(
               context,
@@ -375,7 +384,9 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
             setState(() {
               isFormChanged = _nameController.text.trim() !=
                       userData?['username'] ||
-                  _ageController.text.trim() != userData?['age']?.toString();
+                  _ageController.text.trim() != userData?['age']?.toString() ||
+                  _klasifikasiController.text.trim() !=
+                      userData?['klasifikasi'];
             });
           },
         ),
@@ -455,9 +466,108 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
             setState(() {
               isFormChanged = _nameController.text.trim() !=
                       userData?['username'] ||
-                  _ageController.text.trim() != userData?['age']?.toString();
+                  _ageController.text.trim() != userData?['age']?.toString() ||
+                  _klasifikasiController.text.trim() !=
+                      userData?['klasifikasi'];
             });
           },
+        ),
+        const SizedBox(height: 15),
+        Align(
+          alignment: Alignment.topLeft,
+          child: Text(
+            'Klasifikasi',
+            style: GoogleFonts.poppins(
+              color: const Color(0XFF000000),
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        const SizedBox(height: 5),
+        DropdownButtonFormField<String>(
+          initialValue: _klasifikasiController.text.isNotEmpty
+              ? _klasifikasiController.text
+              : null,
+          items: const [
+            DropdownMenuItem(
+              value: "0-25 dB",
+              child: Text("0-25 dB (Ringan)"),
+            ),
+            DropdownMenuItem(
+              value: "26-40 dB",
+              child: Text("26-40 dB (Sedang)"),
+            ),
+            DropdownMenuItem(
+              value: "41-55 dB",
+              child: Text("41-55 dB (Cukup Berat)"),
+            ),
+            DropdownMenuItem(
+              value: "56-70 dB",
+              child: Text("56-70 dB (Berat)"),
+            ),
+            DropdownMenuItem(
+              value: "71-90 dB",
+              child: Text("71-90 dB (Sangat Berat)"),
+            ),
+            DropdownMenuItem(
+              value: ">90 dB",
+              child: Text(">90 dB (Tuli Total)"),
+            ),
+          ],
+          style: GoogleFonts.poppins(
+            fontSize: 16,
+            color: const Color(0XFF000000),
+            fontWeight: FontWeight.w400,
+            decoration: TextDecoration.none,
+          ),
+          onChanged: (val) {
+            setState(() {
+              _klasifikasiController.text = val ?? '';
+              isFormChanged = _nameController.text.trim() !=
+                      userData?['username'] ||
+                  _ageController.text.trim() != userData?['age']?.toString() ||
+                  _klasifikasiController.text.trim() !=
+                      userData?['klasifikasi'];
+            });
+          },
+          decoration: const InputDecoration(
+            contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            filled: true,
+            fillColor: Color(0XFFFFFFFF),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(7),
+              ),
+              borderSide: BorderSide(
+                color: Color(0XFFDADCD9),
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(7),
+              ),
+              borderSide: BorderSide(
+                color: Color(0XFFDADCD9),
+              ),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(7),
+              ),
+              borderSide: BorderSide(
+                color: Color(0XFFDADCD9),
+              ),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(7),
+              ),
+              borderSide: BorderSide(
+                color: Color(0XFFDADCD9),
+              ),
+            ),
+          ),
         ),
       ],
     );
@@ -470,7 +580,7 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
           focusColor: Colors.transparent,
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
           onTap: isFormChanged
               ? () async {
                   await saveProfileChanges();
@@ -512,93 +622,93 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
       backgroundColor: const Color(0XFFFFFFFF),
       resizeToAvoidBottomInset: false,
       body: isLoading
-    ? const Center(
-        child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF4CAF50)),
-        ),
-      )
-    : LayoutBuilder(
-        builder: (context, constraints) {
-          return SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: constraints.maxHeight,
+          ? const Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF4CAF50)),
               ),
-              child: IntrinsicHeight(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 25, right: 25, bottom: 30),
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 40),
-                      Stack(
-                        children: [
-                          Center(
-                            child: Text(
-                              'Profile',
-                              style: GoogleFonts.poppins(
-                                color: const Color(0XFF000000),
-                                fontSize: 22,
-                                fontWeight: FontWeight.w600,
-                              ),
+            )
+          : LayoutBuilder(
+              builder: (context, constraints) {
+                return SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
+                    ),
+                    child: IntrinsicHeight(
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 25, right: 25, bottom: 30),
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 40),
+                            Stack(
+                              children: [
+                                Center(
+                                  child: Text(
+                                    'Profile',
+                                    style: GoogleFonts.poppins(
+                                      color: const Color(0XFF000000),
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  right: 0,
+                                  child: InkWell(
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    overlayColor: WidgetStateProperty.all(
+                                        Colors.transparent),
+                                    onTap: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return DialogLogout(
+                                            logout: () => logOut(context),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: const Padding(
+                                      padding: EdgeInsets.only(top: 4),
+                                      child: Icon(
+                                        Icons.logout_rounded,
+                                        size: 22,
+                                        color: Color(0XFFD92D20),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Positioned(
-                            right: 0,
-                            child: InkWell(
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              overlayColor:
-                                  MaterialStateProperty.all(Colors.transparent),
-                              onTap: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return DialogLogout(
-                                      logout: () => logOut(context),
-                                    );
-                                  },
-                                );
-                              },
-                              child: const Padding(
-                                padding: EdgeInsets.only(top: 4),
-                                child: Icon(
-                                  Icons.logout_rounded,
-                                  size: 22,
-                                  color: Color(0XFFD92D20),
+                            const SizedBox(height: 25),
+                            buildProfileHeader(),
+                            const SizedBox(height: 50),
+                            buildUserDetails(),
+                            const Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Text(
+                                'Deaflypedia v.1.0',
+                                style: GoogleFonts.poppins(
+                                  color: const Color(0XFF999999),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300,
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 25),
-                        buildProfileHeader(),
-                        const SizedBox(height: 50),
-                        buildUserDetails(),
-                        const Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: Text(
-                            'Deaflypedia v.1.0',
-                            style: GoogleFonts.poppins(
-                              color: const Color(0XFF999999),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
+                            const SizedBox(height: 15),
+                            buildActionButtons(),
+                          ],
                         ),
-                        const SizedBox(height: 15),
-                        buildActionButtons(),
-                      ],
+                      ),
+                    ),
                   ),
-                ),
-              ),
+                );
+              },
             ),
-          );
-        },
-      ),
     );
   }
 }

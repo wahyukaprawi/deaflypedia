@@ -58,7 +58,7 @@ class DialogExitLesson extends StatelessWidget {
                 focusColor: Colors.transparent,
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
-                overlayColor: MaterialStateProperty.all(Colors.transparent),
+                overlayColor: WidgetStateProperty.all(Colors.transparent),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.pop(context);
@@ -89,7 +89,7 @@ class DialogExitLesson extends StatelessWidget {
                 focusColor: Colors.transparent,
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
-                overlayColor: MaterialStateProperty.all(Colors.transparent),
+                overlayColor: WidgetStateProperty.all(Colors.transparent),
                 onTap: () => Navigator.pop(context),
                 child: Container(
                   width: double.infinity,

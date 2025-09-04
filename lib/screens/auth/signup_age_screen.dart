@@ -1,10 +1,10 @@
-import 'package:deaflypedia_app/screens/auth/signup_profile_picture_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../utils/custom_button.dart';
 import '../../utils/custom_button_off.dart';
 import '../../utils/custom_progress_bar.dart';
+import 'signup_klasifikasi_screen.dart';
 
 class SignupAgeScreen extends StatefulWidget {
   final String username;
@@ -16,7 +16,7 @@ class SignupAgeScreen extends StatefulWidget {
 
 class _SignupAgeScreenState extends State<SignupAgeScreen> {
   final _formKey = GlobalKey<FormState>();
-  String age = '';
+  String? age;
   bool isFormValid = false;
 
   @override
@@ -60,7 +60,7 @@ class _SignupAgeScreenState extends State<SignupAgeScreen> {
                 ),
                 const SizedBox(width: 10),
                 const Expanded(
-                  child: CustomProgressBar(value: 0.66),
+                  child: CustomProgressBar(value: 0.50),
                 ),
               ],
             ),
@@ -160,9 +160,9 @@ class _SignupAgeScreenState extends State<SignupAgeScreen> {
                     ontap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignupProfilePictureScreen(
+                        builder: (context) => SignupKlasifikasiScreen(
                           username: widget.username,
-                          age: age,
+                          age:  age ?? "",
                         ),
                       ),
                     ),

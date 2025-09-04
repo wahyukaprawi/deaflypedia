@@ -700,7 +700,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                               }
                             },
                             overlayColor:
-                                MaterialStateProperty.all(Colors.transparent),
+                                WidgetStateProperty.all(Colors.transparent),
                             child: Container(
                               height: 31,
                               decoration: BoxDecoration(

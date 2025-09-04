@@ -93,7 +93,7 @@ Widget _buildLetterBox(BuildContext context, String letter) {
     focusColor: Colors.transparent,
     hoverColor: Colors.transparent,
     highlightColor: Colors.transparent,
-    overlayColor: MaterialStateProperty.all(Colors.transparent),
+    overlayColor: WidgetStateProperty.all(Colors.transparent),
     onTap: () => showDetailAlphabet(context, letter),
     child: Container(
       width: MediaQuery.of(context).size.width * 0.15,

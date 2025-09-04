@@ -15,7 +15,7 @@ class SignupNameScreen extends StatefulWidget {
 
 class _SignupNameScreenState extends State<SignupNameScreen> {
   final _formKey = GlobalKey<FormState>();
-  String username = '';
+  String? username;
   bool isFormValid = false;
 
   @override
@@ -59,7 +59,7 @@ class _SignupNameScreenState extends State<SignupNameScreen> {
                 ),
                 const SizedBox(width: 10),
                 const Expanded(
-                  child: CustomProgressBar(value: 0.33),
+                  child: CustomProgressBar(value: 0.25),
                 ),
               ],
             ),
@@ -160,7 +160,7 @@ class _SignupNameScreenState extends State<SignupNameScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            SignupAgeScreen(username: username),
+                            SignupAgeScreen(username: username ?? ""),
                       ),
                     ),
                     title: 'Selanjutnya',

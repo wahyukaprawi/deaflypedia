@@ -22,7 +22,7 @@ ResultFeedback getResultFeedback(int percentage) {
   } else {
     return ResultFeedback(
       title: 'Ayo semangat!',
-      subtitle: 'Yuk ulangi dan capai skor 80% ke atas.',
+      subtitle: 'Yuk ulangi dan capai skor 80% untuk ke\npelajaran selanjutnya.',
       imageAsset: ilustrasi4,
     );
   }

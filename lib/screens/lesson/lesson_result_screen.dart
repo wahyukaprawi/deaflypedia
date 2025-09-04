@@ -215,15 +215,14 @@ class _LessonResultScreenState extends State<LessonResultScreen> {
   Widget _buildActionButtons(BuildContext context) {
     final bool isPassed = percentage >= 80;
 
-    if (isLastLesson) {
-      if (isPassed) {
+    if (isPassed) {
+      if (isLastLesson) {
         return Column(
           children: [
-            InkWell(
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              overlayColor: MaterialStateProperty.all(Colors.transparent),
+            _buildButton(
+              label: 'Kembali ke beranda',
+              color: const Color(0XFF118611),
+              textColor: Colors.white,
               onTap: () {
                 Navigator.pushAndRemoveUntil(
                   context,
@@ -231,96 +230,31 @@ class _LessonResultScreenState extends State<LessonResultScreen> {
                   (route) => false,
                 );
               },
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: const Color(0XFF118611),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  'Kembali ke Beranda',
-                  style: GoogleFonts.poppins(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
             ),
             const SizedBox(height: 8),
-            InkWell(
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              overlayColor: MaterialStateProperty.all(Colors.transparent),
+            _buildButton(
+              label: 'Ulangi',
+              color: Colors.transparent,
+              textColor: const Color(0XFF000000),
               onTap: _repeatCurrentLesson,
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                alignment: Alignment.center,
-                child: Text(
-                  'Ulangi',
-                  style: GoogleFonts.poppins(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700,
-                    color: const Color(0XFF000000),
-                  ),
-                ),
-              ),
             ),
           ],
         );
       } else {
         return Column(
           children: [
-            InkWell(
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              overlayColor: MaterialStateProperty.all(Colors.transparent),
-              onTap: _repeatCurrentLesson,
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: const Color(0XFFD92D20),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  'Ulangi',
-                  style: GoogleFonts.poppins(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+            _buildButton(
+              label: 'Lanjutkan belajar',
+              color: const Color(0XFF118611),
+              textColor: Colors.white,
+              onTap: _goToNextLesson,
             ),
             const SizedBox(height: 8),
-            InkWell(
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              overlayColor: MaterialStateProperty.all(Colors.transparent),
-              onTap: () {
-                Navigator.popUntil(context, (route) => route.isFirst);
-              },
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                alignment: Alignment.center,
-                child: Text(
-                  'Kembali ke Beranda',
-                  style: GoogleFonts.poppins(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700,
-                    color: const Color(0XFF000000),
-                  ),
-                ),
-              ),
+            _buildButton(
+              label: 'Ulangi',
+              color: Colors.transparent,
+              textColor: const Color(0XFF000000),
+              onTap: _repeatCurrentLesson,
             ),
           ],
         );
@@ -328,55 +262,59 @@ class _LessonResultScreenState extends State<LessonResultScreen> {
     } else {
       return Column(
         children: [
-          InkWell(
-            focusColor: Colors.transparent,
-            hoverColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            overlayColor: MaterialStateProperty.all(Colors.transparent),
-            onTap: isPassed ? _goToNextLesson : _repeatCurrentLesson,
-            child: Container(
-              width: double.infinity,
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: isPassed
-                    ? const Color(0XFF118611)
-                    : const Color(0XFFD92D20),
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                isPassed ? 'Lanjutkan belajar' : 'Ulangi',
-                style: GoogleFonts.poppins(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0XFFFFFFFF),
-                ),
-              ),
-            ),
+          _buildButton(
+            label: 'Ulangi',
+            color: const Color(0XFFD92D20),
+            textColor: Colors.white,
+            onTap: _repeatCurrentLesson,
           ),
           const SizedBox(height: 8),
-          InkWell(
-            focusColor: Colors.transparent,
-            hoverColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            overlayColor: MaterialStateProperty.all(Colors.transparent),
-            onTap: isPassed ? _repeatCurrentLesson : _goToNextLesson,
-            child: Container(
-              width: double.infinity,
-              height: 50,
-              alignment: Alignment.center,
-              child: Text(
-                isPassed ? 'Ulangi' : 'Lanjutkan belajar',
-                style: GoogleFonts.poppins(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0XFF000000),
-                ),
-              ),
-            ),
+          _buildButton(
+            label: 'Kembali ke beranda',
+            color: Colors.transparent,
+            textColor: const Color(0XFF000000),
+            onTap: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+                (route) => false,
+              );
+            },
           ),
         ],
       );
     }
+  }
+
+  Widget _buildButton({
+    required String label,
+    required Color color,
+    required Color textColor,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        height: 50,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: color == Colors.transparent ? null : color,
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          label,
+          style: GoogleFonts.poppins(
+            fontSize: 17,
+            fontWeight: FontWeight.w700,
+            color: textColor,
+          ),
+        ),
+      ),
+    );
   }
 }

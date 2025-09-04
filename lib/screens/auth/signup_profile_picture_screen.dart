@@ -14,8 +14,9 @@ import 'signup_finish_screen.dart';
 class SignupProfilePictureScreen extends StatefulWidget {
   final String username;
   final String age;
+  final String klasifikasi;
   const SignupProfilePictureScreen(
-      {super.key, required this.username, required this.age});
+      {super.key, required this.username, required this.age, required this.klasifikasi});
 
   @override
   State<SignupProfilePictureScreen> createState() =>
@@ -58,21 +59,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/bapak_ft7s4x.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/bapak_rgphha.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Bapak'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/ibu_tht1sm.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/ibu_enhdmq.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Ibu'
                 },
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/ibu_tht1sm.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/ibu_enhdmq.mp4',
                   'options': ['Bapak', 'Ibu'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -80,21 +81,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/anak_freew7.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/anak_tjjc6g.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Anak'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/bayi_qlzcgt.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/bayi_g3otza.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Bayi'
                 },
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/anak_freew7.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/anak_tjjc6g.mp4',
                   'options': ['Bayi', 'Anak'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -102,14 +103,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kakek_bjoyhm.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kakek_ifopr6.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Kakek'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/nenek_nlwpwi.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/nenek_hxintm.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Nenek'
                 },
@@ -133,14 +134,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/saudara_bu2bio.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/saudara_z5tjos.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Saudara'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/teman_vozjkq.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/teman_ygbyps.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Teman'
                 },
@@ -171,7 +172,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kakek_bjoyhm.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kakek_ifopr6.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -190,7 +191,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/ibu_tht1sm.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/ibu_enhdmq.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -209,11 +210,11 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/anak_freew7.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/anak_tjjc6g.mp4',
                   'options': [
                     {
                       'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/bayi_cdkl7q.png',
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/bayi_lrrrta.png',
                       'text': 'Bayi'
                     },
                     {
@@ -263,7 +264,7 @@ class _SignupProfilePictureScreenState
                     },
                     {
                       'imageUrl':
-                          'https://res.cloudinary.com/dqyicvxey/image/upload/bayi_cdkl7q.png',
+                          'https://res.cloudinary.com/dqyicvxey/image/upload/bayi_lrrrta.png',
                       'text': 'Bayi'
                     }
                   ],
@@ -294,7 +295,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 1,
                   'fullPhrase': 'Nenek dan _____ suka bermain dengan saya',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kakek_bjoyhm.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kakek_ifopr6.mp4',
                   'options': ['teman', 'kakek'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -303,7 +304,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 0,
                   'fullPhrase': '_____ saya kerja di kantor',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/bapak_ft7s4x.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/bapak_rgphha.mp4',
                   'options': ['Bapak', 'Kakek'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -312,7 +313,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 1,
                   'fullPhrase': 'Adik saya masih kecil, dia seorang _____',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/bayi_qlzcgt.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/bayi_g3otza.mp4',
                   'options': ['adik', 'bayi'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -320,21 +321,21 @@ class _SignupProfilePictureScreenState
                 {
                   'correctAnswer': 'Ibu',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/ibu_tht1sm.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/ibu_enhdmq.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Teman',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/teman_vozjkq.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/teman_ygbyps.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Anak',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/anak_freew7.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/anak_tjjc6g.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
@@ -358,21 +359,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/oke_niywpt.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/oke_d2tmn7.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Oke'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/maaf_ykq0oh.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Maaf'
                 },
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/oke_niywpt.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/oke_d2tmn7.mp4',
                   'options': ['Oke', 'Maaf'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -380,21 +381,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/betul_h1jgte.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Betul'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/salah_lfnyxf.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/salah_gmhs6s.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Salah'
                 },
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/betul_h1jgte.mp4',
                   'options': ['Salah', 'Betul'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -402,14 +403,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/sakit_eowpin.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/sakit_zcs6cl.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Sakit'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/lelah_jtgnym.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Lelah'
                 },
@@ -433,14 +434,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_enw3re.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/sibuk_qsnowp.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Sibuk'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/tidak_apa-apa_ph3avi.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/tidak_apa-apa_z2bkdt.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Tidak Apa-apa'
                 },
@@ -471,7 +472,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/salah_lfnyxf.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/salah_gmhs6s.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -490,7 +491,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/betul_h1jgte.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -509,7 +510,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/maaf_ykq0oh.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -594,7 +595,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 1,
                   'fullPhrase': '_____ saya tidak sengaja mendorongmu',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/maaf_ykq0oh.mp4',
                   'options': ['Oke', 'Maaf'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -603,7 +604,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 1,
                   'fullPhrase': 'Guru bilang _____ setelah saya menjawab benar',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/betul_e5xstj.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/betul_h1jgte.mp4',
                   'options': ['salah', 'betul'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -612,7 +613,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 0,
                   'fullPhrase': 'Saya merasa _____ setelah bermain seharian',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/lelah_jtgnym.mp4',
                   'options': ['lelah', 'sakit'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -620,21 +621,21 @@ class _SignupProfilePictureScreenState
                 {
                   'correctAnswer': 'Maaf',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/maaf_npbbjw.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/maaf_ykq0oh.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Lelah',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/lelah_bhmoby.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/lelah_jtgnym.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Sibuk',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/sibuk_enw3re.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/sibuk_qsnowp.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
@@ -658,21 +659,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/guru_bud9g9.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/guru_fbg8if.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Guru'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/murid_jkuhjk.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/murid_qsszrv.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Murid'
                 },
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/guru_bud9g9.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/guru_fbg8if.mp4',
                   'options': ['Guru', 'Murid'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -680,21 +681,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/mulai_ulu2le.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/mulai_r6klba.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Mulai'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/terakhir_adhtcg.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/terakhir_vrzxnl.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Terakhir'
                 },
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/terakhir_adhtcg.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/terakhir_vrzxnl.mp4',
                   'options': ['Terakhir', 'Mulai'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -702,14 +703,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/bertanya_vlbqjw.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/bertanya_vgacif.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Bertanya'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/latihan_c7yhyt.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/latihan_fk6qrc.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Latihan'
                 },
@@ -733,14 +734,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/sulit_hetkgy.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/sulit_ue9wru.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Sulit'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/lama_y3tykc.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/lama_foweof.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Lama'
                 },
@@ -771,7 +772,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/murid_jkuhjk.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/murid_qsszrv.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -790,7 +791,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/terakhir_adhtcg.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/terakhir_vrzxnl.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -809,7 +810,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/sulit_hetkgy.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/sulit_ue9wru.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -894,7 +895,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 0,
                   'fullPhrase': 'Saya ingin _____ sebelum ujian',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/latihan_c7yhyt.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/latihan_fk6qrc.mp4',
                   'options': ['latihan', 'sulit'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -903,7 +904,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 0,
                   'fullPhrase': 'Jawaban saya _____ dengan teman',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/sama_d3dhj5.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/lama_foweof.mp4',
                   'options': ['sama', 'beda'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -912,7 +913,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 1,
                   'fullPhrase': 'Pelajaran akan _____ saat guru masuk kelas',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/mulai_ulu2le.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/mulai_r6klba.mp4',
                   'options': ['terakhir', 'mulai'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -920,21 +921,21 @@ class _SignupProfilePictureScreenState
                 {
                   'correctAnswer': 'Guru',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/guru_bud9g9.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/guru_fbg8if.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Murid',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/murid_jkuhjk.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/murid_qsszrv.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Bertanya',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/bertanya_vlbqjw.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/bertanya_vgacif.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
@@ -958,21 +959,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/apa_dnbmca.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/apa_xbwvpf.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Apa'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/siapa_tthexi.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/siapa_xw2aik.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Siapa'
                 },
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/apa_dnbmca.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/apa_xbwvpf.mp4',
                   'options': ['Siapa', 'Apa'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -980,21 +981,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/dimana_t9bpr7.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/dimana_nyaacs.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Dimana'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kapan_vkxyki.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kapan_ceczum.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Kapan'
                 },
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/dimana_t9bpr7.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/dimana_nyaacs.mp4',
                   'options': ['Dimana', 'Kapan'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -1002,14 +1003,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kenapa_gf21yi.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kenapa_rwepsy.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Kenapa'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/bagaimana_edegey.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/bagaimana_brgspd.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Bagaimana'
                 },
@@ -1033,7 +1034,7 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/berapa_kyqxlo.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/berapa_wtympk.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Berapa'
                 },
@@ -1064,7 +1065,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/siapa_tthexi.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/siapa_xw2aik.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -1083,7 +1084,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kapan_vkxyki.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kapan_ceczum.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -1102,7 +1103,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/bagaimana_edegey.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/bagaimana_brgspd.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -1187,7 +1188,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 1,
                   'fullPhrase': '_____ namamu?',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/siapa_tthexi.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/siapa_xw2aik.mp4',
                   'options': ['Apa', 'Siapa'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -1196,7 +1197,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 1,
                   'fullPhrase': 'Kita belajar _____ hari ini?',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/apa_dnbmca.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/apa_xbwvpf.mp4',
                   'options': ['dimana', 'apa'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -1205,7 +1206,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 0,
                   'fullPhrase': 'Ayah bekerja di _____',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/dimana_t9bpr7.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/dimana_nyaacs.mp4',
                   'options': ['dimana', 'kapan'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -1213,21 +1214,21 @@ class _SignupProfilePictureScreenState
                 {
                   'correctAnswer': 'Kenapa',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kenapa_gf21yi.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kenapa_rwepsy.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Bagaimana',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/bagaimana_edegey.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/bagaimana_brgspd.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Berapa',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/berapa_kyqxlo.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/berapa_wtympk.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
@@ -1251,21 +1252,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/merah_ud4a5s.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/merah_lcnczq.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Merah'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/biru_jtq3e3.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/biru_roaqix.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Biru'
                 },
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/merah_ud4a5s.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/merah_lcnczq.mp4',
                   'options': ['Biru', 'Merah'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -1273,21 +1274,21 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kuning_exzgih.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kuning_sbn3dj.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Kuning'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/hijau_t7vfjf.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/hijau_zpxtql.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Hijau'
                 },
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/hijau_t7vfjf.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/hijau_zpxtql.mp4',
                   'options': ['Kuning', 'Hijau'],
                   'questionText': 'Ayo tebak, ini kata apa?',
                   'type': 'quiz',
@@ -1295,14 +1296,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/putih_p33j06.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/putih_iofu7o.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Putih'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/hitam_trggm4.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/hitam_aofnvn.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Hitam'
                 },
@@ -1326,14 +1327,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/abu-abu_jjs5cn.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/abu-abu_dqyd8z.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Abu-abu'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/jingga_jfmyks.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/jingga_qsqya3.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Jingga'
                 },
@@ -1357,14 +1358,14 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/merah_muda_u4qgll.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/merah_muda_xlsgah.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Merah Muda'
                 },
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/ungu_ilgxeq.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/ungu_hkq1g5.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Ungu'
                 },
@@ -1388,7 +1389,7 @@ class _SignupProfilePictureScreenState
                 {
                   'contentTitle': 'Belajar kosakata baru!',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/coklat_frkre9.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/coklat_v7mrsf.mp4',
                   'type': 'vocabulary',
                   'vocabularyText': 'Coklat'
                 },
@@ -1419,7 +1420,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kuning_exzgih.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kuning_sbn3dj.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -1438,7 +1439,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/biru_jtq3e3.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/biru_roaqix.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -1457,7 +1458,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 1,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/ungu_ilgxeq.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/ungu_hkq1g5.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -1476,7 +1477,7 @@ class _SignupProfilePictureScreenState
                 {
                   'correctOptionIndex': 0,
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/putih_p33j06.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/putih_iofu7o.mp4',
                   'options': [
                     {
                       'imageUrl':
@@ -1619,7 +1620,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 0,
                   'fullPhrase': 'Mobil ayah berwarna _____',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/hitam_trggm4.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/hitam_aofnvn.mp4',
                   'options': ['hitam', 'merah'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -1628,7 +1629,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 0,
                   'fullPhrase': 'Langit pagi terlihat berwarna _____',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/biru_jtq3e3.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/biru_roaqix.mp4',
                   'options': ['biru', 'putih'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -1637,7 +1638,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 1,
                   'fullPhrase': 'Daun di taman berwarna _____',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/hijau_t7vfjf.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/hijau_zpxtql.mp4',
                   'options': ['kuning', 'hijau'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -1646,7 +1647,7 @@ class _SignupProfilePictureScreenState
                   'correctOptionIndex': 1,
                   'fullPhrase': 'Topi adik warnanya _____',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/ungu_ilgxeq.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/ungu_hkq1g5.mp4',
                   'options': ['merah muda', 'ungu'],
                   'questionText': 'Lengkapi kata yang hilang',
                   'type': 'gif_missing_word_quiz',
@@ -1654,21 +1655,21 @@ class _SignupProfilePictureScreenState
                 {
                   'correctAnswer': 'Kuning',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/kuning_exzgih.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/kuning_sbn3dj.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Putih',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/putih_p33j06.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/putih_iofu7o.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
                 {
                   'correctAnswer': 'Jingga',
                   'gifUrl':
-                      'https://res.cloudinary.com/dqyicvxey/image/upload/jingga_jfmyks.gif',
+                      'https://res.cloudinary.com/dqyicvxey/video/upload/jingga_qsqya3.mp4',
                   'questionText': 'Tulis kata yang ditunjukkan!',
                   'type': 'gif_input_word_quiz',
                 },
@@ -1811,6 +1812,7 @@ class _SignupProfilePictureScreenState
       await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
         'username': widget.username,
         'age': widget.age,
+        'klasifikasi': widget.klasifikasi,
         'avatar': avatarUrl,
         'xp': 0,
         'streak': 1,
@@ -1830,8 +1832,6 @@ class _SignupProfilePictureScreenState
         MaterialPageRoute(
           builder: (context) => SignupFinishScreen(
             username: widget.username,
-            age: widget.age,
-            avatar: avatarUrl,
           ),
         ),
       );
@@ -1944,7 +1944,7 @@ class _SignupProfilePictureScreenState
                                         fit: BoxFit.cover,
                                         color: isSelected
                                             ? const Color(0XFF000000)
-                                                .withOpacity(0.3)
+                                                .withValues(alpha: 0.3)
                                             : null,
                                         colorBlendMode: isSelected
                                             ? BlendMode.darken
