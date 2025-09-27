@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "198554205229",
-    "project_id": "daeflypedia-app-firebase",
-    "storage_bucket": "daeflypedia-app-firebase.firebasestorage.app"
+    "project_number": "873012973835",
+    "project_id": "deaflypedia-app-d22bf",
+    "storage_bucket": "deaflypedia-app-d22bf.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:198554205229:android:1878037fc21edaff648ca4",
+        "mobilesdk_app_id": "1:873012973835:android:607c4ad7a8d700f66b920e",
         "android_client_info": {
-          "package_name": "com.example.deaflypedia_app"
+          "package_name": "com.ravenclawcode.deaflypedia_app"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAn1HDt0iz6njqFO6QMMe2XXC8YhoS7mKw"
+          "current_key": "AIzaSyBb94fRrmk2uo75-2zPVIDuE4UeytKAJoE"
         }
       ],
       "services": {

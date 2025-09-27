@@ -41,48 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCPOuWUyK6CES9_F0E_T2_4yY7jBTXC5G4',
-    appId: '1:198554205229:web:8ba23f5f710357dc648ca4',
-    messagingSenderId: '198554205229',
-    projectId: 'daeflypedia-app-firebase',
-    authDomain: 'daeflypedia-app-firebase.firebaseapp.com',
-    storageBucket: 'daeflypedia-app-firebase.firebasestorage.app',
-    measurementId: 'G-2T1BSNWYCQ',
+    apiKey: 'AIzaSyC1N3mrYZYvpT6gyhhDX70z_TqNzDbLhV0',
+    appId: '1:873012973835:web:0ef135d1e02d4be76b920e',
+    messagingSenderId: '873012973835',
+    projectId: 'deaflypedia-app-d22bf',
+    authDomain: 'deaflypedia-app-d22bf.firebaseapp.com',
+    storageBucket: 'deaflypedia-app-d22bf.firebasestorage.app',
+    measurementId: 'G-7P1VK9V9LZ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAn1HDt0iz6njqFO6QMMe2XXC8YhoS7mKw',
-    appId: '1:198554205229:android:1878037fc21edaff648ca4',
-    messagingSenderId: '198554205229',
-    projectId: 'daeflypedia-app-firebase',
-    storageBucket: 'daeflypedia-app-firebase.firebasestorage.app',
+    apiKey: 'AIzaSyBb94fRrmk2uo75-2zPVIDuE4UeytKAJoE',
+    appId: '1:873012973835:android:607c4ad7a8d700f66b920e',
+    messagingSenderId: '873012973835',
+    projectId: 'deaflypedia-app-d22bf',
+    storageBucket: 'deaflypedia-app-d22bf.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBoRhg2NDmLyzh1u-iN_aL_d-cJPQpsyVg',
-    appId: '1:198554205229:ios:b9e5f00948288e0f648ca4',
-    messagingSenderId: '198554205229',
-    projectId: 'daeflypedia-app-firebase',
-    storageBucket: 'daeflypedia-app-firebase.firebasestorage.app',
-    iosBundleId: 'com.example.deaflypediaApp',
+    apiKey: 'AIzaSyBM79NZr7mQMg1vC7-nu7koH6cCeYIwVJU',
+    appId: '1:873012973835:ios:fd5cc646dd99661c6b920e',
+    messagingSenderId: '873012973835',
+    projectId: 'deaflypedia-app-d22bf',
+    storageBucket: 'deaflypedia-app-d22bf.firebasestorage.app',
+    iosBundleId: 'com.ravenclawcode.deaflypediaApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBoRhg2NDmLyzh1u-iN_aL_d-cJPQpsyVg',
-    appId: '1:198554205229:ios:b9e5f00948288e0f648ca4',
-    messagingSenderId: '198554205229',
-    projectId: 'daeflypedia-app-firebase',
-    storageBucket: 'daeflypedia-app-firebase.firebasestorage.app',
-    iosBundleId: 'com.example.deaflypediaApp',
+    apiKey: 'AIzaSyBM79NZr7mQMg1vC7-nu7koH6cCeYIwVJU',
+    appId: '1:873012973835:ios:fd5cc646dd99661c6b920e',
+    messagingSenderId: '873012973835',
+    projectId: 'deaflypedia-app-d22bf',
+    storageBucket: 'deaflypedia-app-d22bf.firebasestorage.app',
+    iosBundleId: 'com.ravenclawcode.deaflypediaApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCPOuWUyK6CES9_F0E_T2_4yY7jBTXC5G4',
-    appId: '1:198554205229:web:48d76368ca3f2e73648ca4',
-    messagingSenderId: '198554205229',
-    projectId: 'daeflypedia-app-firebase',
-    authDomain: 'daeflypedia-app-firebase.firebaseapp.com',
-    storageBucket: 'daeflypedia-app-firebase.firebasestorage.app',
-    measurementId: 'G-0JQM5WGP00',
+    apiKey: 'AIzaSyC1N3mrYZYvpT6gyhhDX70z_TqNzDbLhV0',
+    appId: '1:873012973835:web:35ff3aaf15b6783c6b920e',
+    messagingSenderId: '873012973835',
+    projectId: 'deaflypedia-app-d22bf',
+    authDomain: 'deaflypedia-app-d22bf.firebaseapp.com',
+    storageBucket: 'deaflypedia-app-d22bf.firebasestorage.app',
+    measurementId: 'G-FZ9FR4RJZS',
   );
 }

@@ -1,4 +1,4 @@
-package com.example.deaflypedia_app
+package com.ravenclawcode.deaflypedia_app
 
 import io.flutter.embedding.android.FlutterActivity
 
