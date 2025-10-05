@@ -1,4 +1,4 @@
-# Deaflypedia
+# Deaflypedia App
 
 ![UI Preview](assets/images/preview_ui.png)
 
