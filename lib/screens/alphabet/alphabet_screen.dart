@@ -29,7 +29,7 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
             ),
             Column(
               children: [
-                const SizedBox(height: 78),
+                const SizedBox(height: 88),
                 Text.rich(
                   const TextSpan(
                     children: [

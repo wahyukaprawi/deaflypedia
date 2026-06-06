@@ -208,7 +208,7 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
   OverlayEntry _createOverlayEntry() {
     return OverlayEntry(
       builder: (context) => Positioned(
-        top: 75,
+        top: 85,
         left: (MediaQuery.of(context).size.width - 225) / 2,
         child: Material(
           color: Colors.transparent,
@@ -640,7 +640,7 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
                             left: 25, right: 25, bottom: 30),
                         child: Column(
                           children: [
-                            const SizedBox(height: 40),
+                            const SizedBox(height: 50),
                             Stack(
                               children: [
                                 Center(

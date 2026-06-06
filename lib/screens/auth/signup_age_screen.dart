@@ -42,7 +42,7 @@ class _SignupAgeScreenState extends State<SignupAgeScreen> {
       backgroundColor: const Color(0XFFFFFFFF),
       body: Column(
         children: [
-          const SizedBox(height: 40),
+          const SizedBox(height: 50),
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 25),
             child: Row(

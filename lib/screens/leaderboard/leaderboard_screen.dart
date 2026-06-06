@@ -37,7 +37,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
             ),
             Column(
               children: [
-                const SizedBox(height: 40),
+                const SizedBox(height: 50),
                 Text(
                   'Peringkat',
                   style: GoogleFonts.poppins(

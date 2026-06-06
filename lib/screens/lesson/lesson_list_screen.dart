@@ -225,7 +225,7 @@ class LessonContent extends StatelessWidget {
           ),
           Column(
             children: [
-              const SizedBox(height: 40),
+              const SizedBox(height: 50),
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: Align(

@@ -89,7 +89,7 @@ class _SignupFinishScreenState extends State<SignupFinishScreen> {
               top: 70,
               right: 20,
               child: Text(
-                "hallo kerucill",
+                "halo kerucill",
                 style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
