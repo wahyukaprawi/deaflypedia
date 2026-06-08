@@ -11,6 +11,28 @@ class AlphabetScreen extends StatefulWidget {
 }
 
 class _AlphabetScreenState extends State<AlphabetScreen> {
+  bool _isOpeningModal = false;
+
+  Future<void> _handleLetterTap(String letter) async {
+    // Jika sedang memproses, abaikan klik selanjutnya
+    if (_isOpeningModal) return;
+
+    setState(() {
+      _isOpeningModal = true;
+    });
+
+    try {
+      showDetailAlphabet(context, letter);
+    } catch (_) {
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isOpeningModal = false;
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,15 +86,29 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
                         runSpacing: 10,
                         alignment: WrapAlignment.center,
                         children: List.generate(25, (index) {
+                          // Ubah di bagian pemanggilan fungsi di sini
                           return _buildLetterBox(
-                              context, String.fromCharCode(65 + index));
+                            context,
+                            String.fromCharCode(65 + index),
+                            _isOpeningModal
+                                ? null
+                                : () => _handleLetterTap(
+                                    String.fromCharCode(65 + index)),
+                          );
                         }),
                       ),
                       const SizedBox(height: 10),
                       Row(
                         children: [
                           const Spacer(flex: 2),
-                          _buildLetterBox(context, "Z"),
+                          // Ubah juga untuk huruf Z
+                          _buildLetterBox(
+                            context,
+                            "Z",
+                            _isOpeningModal
+                                ? null
+                                : () => _handleLetterTap("Z"),
+                          ),
                           const Spacer(flex: 2),
                         ],
                       ),
@@ -88,13 +124,15 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
   }
 }
 
-Widget _buildLetterBox(BuildContext context, String letter) {
+// Tambahkan parameter onTap pada method helper ini
+Widget _buildLetterBox(
+    BuildContext context, String letter, VoidCallback? onTap) {
   return InkWell(
     focusColor: Colors.transparent,
     hoverColor: Colors.transparent,
     highlightColor: Colors.transparent,
     overlayColor: WidgetStateProperty.all(Colors.transparent),
-    onTap: () => showDetailAlphabet(context, letter),
+    onTap: onTap, // Menggunakan callback yang di-passing
     child: Container(
       width: MediaQuery.of(context).size.width * 0.15,
       height: MediaQuery.of(context).size.height * 0.07,
