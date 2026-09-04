@@ -691,7 +691,7 @@ class ProfileScreenState extends State<ProfileScreen> with RouteAware {
                             Padding(
                               padding: const EdgeInsets.only(top: 10),
                               child: Text(
-                                'Deaflypedia V.1.0.2',
+                                'Deaflypedia v1.0.1',
                                 style: GoogleFonts.poppins(
                                   color: const Color(0XFF999999),
                                   fontSize: 12,
